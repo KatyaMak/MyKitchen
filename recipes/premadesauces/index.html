@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pre-made Sauces — Recipes — My Kitchen</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #f8f3ec; --warm-white: #fdfaf6; --linen: #ede5d8; --sand: #d9cbb8;
+    --walnut: #7a5c38; --bark: #4a3018; --ink: #1a1208;
+    --border: rgba(154, 125, 90, 0.2); --border-med: rgba(154, 125, 90, 0.35);
+  }
+  body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--ink); min-height: 100vh; }
+  .page { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+  .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2rem; flex-wrap: wrap; }
+  .breadcrumb a { color: var(--walnut); text-decoration: none; transition: color 0.15s; }
+  .breadcrumb a:hover { color: var(--bark); }
+  .breadcrumb span { color: var(--sand); }
+  .header { margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 0.5px solid var(--border-med); }
+  .header h1 { font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 400; color: var(--ink); letter-spacing: 0.01em; line-height: 1; margin-bottom: 4px; }
+  .header h1 em { font-style: italic; color: var(--walnut); }
+  .header-sub { font-size: 12px; font-weight: 300; letter-spacing: 0.12em; color: var(--walnut); text-transform: uppercase; }
+  .recipe-card { display: flex; align-items: center; justify-content: space-between; background: var(--warm-white); border: 0.5px solid var(--border); border-radius: 12px; padding: 1.1rem 1.5rem; margin-bottom: 0.75rem; text-decoration: none; color: inherit; transition: background 0.15s, border-color 0.15s; position: relative; overflow: hidden; }
+  .recipe-card:hover { background: var(--linen); border-color: var(--border-med); }
+  .recipe-card:hover .arrow { transform: translateX(3px); }
+  .recipe-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--sand); opacity: 0; transition: opacity 0.15s; }
+  .recipe-card:hover::before { opacity: 1; }
+  .recipe-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 500; color: var(--ink); margin-bottom: 3px; line-height: 1.2; }
+  .recipe-meta { font-size: 11px; color: var(--walnut); letter-spacing: 0.04em; font-weight: 300; }
+  .stars { color: var(--walnut); font-size: 11px; letter-spacing: 1px; }
+  .arrow { font-size: 16px; color: var(--walnut); transition: transform 0.15s; display: inline-block; padding-left: 1rem; flex-shrink: 0; }
+  .back-btn { font-size: 12px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--walnut); text-decoration: none; display: inline-flex; align-items: center; gap: 4px; transition: color 0.15s; margin-bottom: 2rem; }
+  .back-btn:hover { color: var(--bark); }
+
+  @media (max-width: 480px) { .page { padding: 1.5rem 1rem 3rem; } .header h1 { font-size: 28px; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">My Kitchen</a><span>·</span>
+    <a href="../index.html">Recipes</a><span>·</span>
+    <a href="#">Pre-made Sauces</a>
+  </div>
+
+  <a class="back-btn" href="../index.html">← Recipes</a>
+
+  <div class="header">
+    <h1>Pre-made <em>Sauces</em></h1>
+    <div class="header-sub">1 recipe</div>
+  </div>
+
+  <a class="recipe-card" href="caribbean-chicken.html">
+    <div>
+      <div class="recipe-title">Caribbean chicken tenderloins with pineapple & shrimp</div>
+      <div class="recipe-meta">April 21, 2026 &nbsp;·&nbsp; stovetop &nbsp;·&nbsp; 20 minutes &nbsp;·&nbsp; serves 2 &nbsp;·&nbsp; <span class="stars">★★★★★</span></div>
+    </div>
+    <span class="arrow">→</span>
+  </a>
+
+</div>
+</body>
+</html>

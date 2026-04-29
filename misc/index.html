@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Misc — My Kitchen</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #f8f3ec;
+    --warm-white: #fdfaf6;
+    --linen: #ede5d8;
+    --sand: #d9cbb8;
+    --walnut: #7a5c38;
+    --bark: #4a3018;
+    --ink: #1a1208;
+    --border: rgba(154, 125, 90, 0.2);
+    --border-med: rgba(154, 125, 90, 0.35);
+  }
+
+  body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--ink); min-height: 100vh; }
+  .page { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+
+  .back-btn {
+    font-size: 12px; font-weight: 400; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--walnut); text-decoration: none;
+    display: inline-flex; align-items: center; gap: 4px;
+    transition: color 0.15s; margin-bottom: 2rem;
+  }
+  .back-btn:hover { color: var(--bark); }
+
+  .header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 0.5px solid var(--border-med);
+  }
+  .header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px; font-weight: 400; color: var(--ink);
+    letter-spacing: 0.01em; line-height: 1; margin-bottom: 4px;
+  }
+  .header h1 em { font-style: italic; color: var(--walnut); }
+  .header-sub {
+    font-size: 12px; font-weight: 300; letter-spacing: 0.12em;
+    color: var(--walnut); text-transform: uppercase;
+  }
+
+  .section-intro {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px; font-style: italic; color: var(--walnut);
+    margin-bottom: 1.75rem;
+  }
+
+  .card {
+    background: var(--warm-white);
+    border: 0.5px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-label {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--walnut); margin-bottom: 1rem;
+  }
+
+  .misc-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom: 0.5px solid var(--border);
+    font-size: 13px;
+  }
+  .misc-item:last-of-type { border-bottom: none; }
+
+  .item-text { flex: 1; color: var(--ink); line-height: 1.6; font-weight: 300; }
+
+  .remove-item {
+    font-size: 14px; color: var(--sand);
+    cursor: pointer; padding: 0 2px;
+    transition: color 0.15s;
+    background: none; border: none;
+    font-family: 'Jost', sans-serif;
+    opacity: 0; flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .misc-item:hover .remove-item { opacity: 1; }
+  .remove-item:hover { color: var(--walnut); }
+
+  .add-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 1rem;
+    align-items: center;
+  }
+
+  .add-input {
+    flex: 1;
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    border: 0.5px solid var(--border-med);
+    background: var(--cream);
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .add-input:focus { border-color: var(--walnut); }
+  .add-input::placeholder { color: var(--sand); }
+
+  .add-btn {
+    padding: 7px 18px;
+    border-radius: 20px;
+    font-size: 11px; font-weight: 400;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    font-family: 'Jost', sans-serif;
+    background: var(--walnut); color: #fff;
+    border: none; cursor: pointer;
+    transition: background 0.15s;
+  }
+  .add-btn:hover { background: var(--bark); }
+
+  @media (max-width: 480px) {
+    .page { padding: 1.5rem 1rem 3rem; }
+    .header h1 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <a class="back-btn" href="../index.html">← My Kitchen</a>
+
+  <div class="header">
+    <h1>M<em>isc</em></h1>
+    <div class="header-sub">Ideas, notes, things waiting.</div>
+  </div>
+
+  <p class="section-intro">The ideas kitchen — what's next, what's waiting, what we learned.</p>
+
+  <div class="card">
+    <div class="card-label">Recipes to make soon</div>
+    <div class="misc-list" id="list-soon"></div>
+    <div class="add-row">
+      <input class="add-input" type="text" placeholder="add a recipe idea…" data-list="soon" />
+      <button class="add-btn" onclick="addItem('soon')">Add</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-label">Ideas — someday</div>
+    <div class="misc-list" id="list-someday"></div>
+    <div class="add-row">
+      <input class="add-input" type="text" placeholder="add an idea…" data-list="someday" />
+      <button class="add-btn" onclick="addItem('someday')">Add</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-label">Notes & discoveries</div>
+    <div class="misc-list" id="list-notes"></div>
+    <div class="add-row">
+      <input class="add-input" type="text" placeholder="add a note…" data-list="notes" />
+      <button class="add-btn" onclick="addItem('notes')">Add</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const DEFAULTS = {
+  soon: [
+    'Chicken thighs — cherry tomatoes, capers, balsamic',
+    'Shrimp — garlic butter, lemon, pasta or grain',
+    'Stuffed peppers — ground turkey, Georgian or Polish direction',
+    'French lentil soup with bacon and bay leaves'
+  ],
+  someday: [
+    'Dutch oven Sunday pork shoulder — slow braise, white wine, bay leaves, carrots',
+    'Clam chowder direction — one can left, broth base',
+    'Quinoa bowl — once quinoa arrives, endless directions'
+  ],
+  notes: [
+    'Steam-in-bag frozen vegetables — new discovery, stock always',
+    'Prosecco works perfectly as cooking wine — confirmed 😄',
+    'Fage = perfect crème fraîche substitute, often better',
+    'Smoked paprika + thyme = sweet potato magic',
+    'Mini sweet peppers roasted with harissa — sweet, smoky, wonderful',
+    'Canned clam brine = liquid gold, never discard it',
+    'Stagger vegetables by robustness — carrots early, squash and peppers late',
+    'Spices need real quantity to work — a teaspoon is not bold, it is correct',
+    'Truffle powder goes on last, off heat — heat kills the aroma',
+    'Cava Brut = perfect pairing with spiced dishes — bubbles cut through heat beautifully',
+    'One good pan changes everything — cast iron next'
+  ]
+};
+
+const KEY = id => 'misc_' + id + '_v1';
+
+function loadList(id) {
+  try {
+    const saved = localStorage.getItem(KEY(id));
+    return saved ? JSON.parse(saved) : DEFAULTS[id];
+  } catch { return DEFAULTS[id]; }
+}
+
+function saveList(id, items) {
+  localStorage.setItem(KEY(id), JSON.stringify(items));
+}
+
+function renderList(id) {
+  const items = loadList(id);
+  const container = document.getElementById('list-' + id);
+  container.innerHTML = '';
+  items.forEach((text, i) => {
+    const row = document.createElement('div');
+    row.className = 'misc-item';
+
+    const span = document.createElement('span');
+    span.className = 'item-text';
+    span.textContent = text;
+
+    const btn = document.createElement('button');
+    btn.className = 'remove-item';
+    btn.textContent = '×';
+    btn.onclick = () => removeItem(id, i);
+
+    row.appendChild(span);
+    row.appendChild(btn);
+    container.appendChild(row);
+  });
+}
+
+function removeItem(id, i) {
+  const items = loadList(id);
+  items.splice(i, 1);
+  saveList(id, items);
+  renderList(id);
+}
+
+function addItem(id) {
+  const input = document.querySelector(`input[data-list="${id}"]`);
+  const val = input.value.trim();
+  if (!val) return;
+  const items = loadList(id);
+  items.push(val);
+  saveList(id, items);
+  input.value = '';
+  renderList(id);
+}
+
+// Enter key support
+document.addEventListener('DOMContentLoaded', () => {
+  ['soon', 'someday', 'notes'].forEach(id => {
+    renderList(id);
+    const input = document.querySelector(`input[data-list="${id}"]`);
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') addItem(id); });
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pantry — My Kitchen</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #f8f3ec;
+    --warm-white: #fdfaf6;
+    --linen: #ede5d8;
+    --sand: #d9cbb8;
+    --walnut: #7a5c38;
+    --bark: #4a3018;
+    --ink: #1a1208;
+    --sage-light: #eaf0e7;
+    --slate-light: #e8eef4;
+    --border: rgba(154, 125, 90, 0.2);
+    --border-med: rgba(154, 125, 90, 0.35);
+  }
+
+  body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--ink); min-height: 100vh; }
+
+  .page { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+
+  .back-nav {
+    margin-bottom: 2rem;
+  }
+  .back-btn {
+    font-size: 12px; font-weight: 400; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--walnut); text-decoration: none;
+    display: inline-flex; align-items: center; gap: 4px;
+    transition: color 0.15s;
+  }
+  .back-btn:hover { color: var(--bark); }
+
+  .header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 0.5px solid var(--border-med);
+  }
+  .header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px; font-weight: 400; color: var(--ink);
+    letter-spacing: 0.01em; line-height: 1; margin-bottom: 4px;
+  }
+  .header h1 em { font-style: italic; color: var(--walnut); }
+  .header-sub {
+    font-size: 12px; font-weight: 300; letter-spacing: 0.12em;
+    color: var(--walnut); text-transform: uppercase;
+  }
+
+  .section-intro {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px; font-style: italic; color: var(--walnut);
+    margin-bottom: 1.5rem;
+  }
+
+  .hint {
+    font-size: 11px; font-weight: 300; color: var(--walnut);
+    letter-spacing: 0.04em; margin-bottom: 1.5rem;
+    opacity: 0.8;
+  }
+
+  .card {
+    background: var(--warm-white);
+    border: 0.5px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-label {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--walnut); margin-bottom: 1rem;
+  }
+
+  .tag-grid { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+
+  /* ── Tags ── */
+  .tag {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px; font-weight: 400;
+    background: var(--linen); color: var(--bark);
+    border: 0.5px solid var(--sand);
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    position: relative;
+    transition: opacity 0.2s, background 0.2s;
+    user-select: none;
+    display: inline-flex; align-items: center; gap: 5px;
+  }
+
+  .tag.herb  { background: var(--sage-light); color: #3a5c25; border-color: #c0d4b4; }
+  .tag.sauce { background: var(--slate-light); color: #2d4a62; border-color: #b8ccdc; }
+  .tag.grain { background: #f5f0e4; color: #5c4a24; border-color: #ddd4b8; }
+  .tag.can   { background: #f0ece8; color: #5c3d28; border-color: #ddd0c4; }
+  .tag.bar   { background: #f0ece8; color: #3a2010; border-color: #d4c4b4; }
+  .tag.special { background: #f8f0e8; color: #5c3820; border-color: #e8d0b8; }
+
+  /* Low state */
+  .tag.low {
+    opacity: 0.55;
+    text-decoration: none;
+    border-style: dashed;
+  }
+  .tag.low::before {
+    content: '↓';
+    font-size: 10px;
+    opacity: 0.7;
+  }
+
+  /* Out state */
+  .tag.out {
+    opacity: 0.28;
+    text-decoration: line-through;
+  }
+
+  /* Remove × button — shows on hover */
+  .tag .remove-x {
+    display: none;
+    font-size: 11px;
+    line-height: 1;
+    color: inherit;
+    opacity: 0.5;
+    margin-left: 1px;
+  }
+  .tag:hover .remove-x { display: inline; }
+
+  /* Add button */
+  .add-tag-btn {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px; font-weight: 400;
+    letter-spacing: 0.06em;
+    background: transparent;
+    color: var(--walnut);
+    border: 0.5px dashed var(--border-med);
+    cursor: pointer;
+    font-family: 'Jost', sans-serif;
+    transition: background 0.15s;
+  }
+  .add-tag-btn:hover { background: var(--linen); }
+
+  /* Inline add input */
+  .add-input-wrap { display: none; align-items: center; gap: 6px; }
+  .add-input-wrap.open { display: inline-flex; }
+  .add-input {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-family: 'Jost', sans-serif;
+    border: 0.5px solid var(--border-med);
+    background: var(--warm-white);
+    color: var(--ink);
+    outline: none;
+    width: 140px;
+  }
+  .add-confirm {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-family: 'Jost', sans-serif;
+    background: var(--walnut);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+
+  @media (max-width: 480px) {
+    .page { padding: 1.5rem 1rem 3rem; }
+    .header h1 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="back-nav">
+    <a class="back-btn" href="../index.html">← My Kitchen</a>
+  </div>
+
+  <div class="header">
+    <h1>Pan<em>try</em></h1>
+    <div class="header-sub">What lives here, always.</div>
+  </div>
+
+  <p class="hint">Click a tag once → low · twice → out · × to remove · + to add</p>
+
+  <div class="card">
+    <div class="card-label">Herbs & spices — individual</div>
+    <div class="tag-grid" id="section-herbs">
+      <span class="tag herb" onclick="cycleTag(this)">smoked paprika<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag herb" onclick="cycleTag(this)">crushed red peppers<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag herb" onclick="cycleTag(this)">whole black peppercorns<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag herb" onclick="cycleTag(this)">mixed peppercorns grinder<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag herb" onclick="cycleTag(this)">thyme<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag herb" onclick="cycleTag(this)">dill weed<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag herb" onclick="cycleTag(this)">basil leaves<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag herb" onclick="cycleTag(this)">allspice — ground<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag herb" onclick="cycleTag(this)">coriander<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag herb" onclick="cycleTag(this)">coriander seeds<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag herb" onclick="cycleTag(this)">turmeric<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag herb" onclick="cycleTag(this)">cinnamon — ground<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag herb" onclick="cycleTag(this)">cinnamon — whole<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag herb" onclick="cycleTag(this)">anise stars<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag herb" onclick="cycleTag(this)">whole cloves<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag herb" onclick="cycleTag(this)">ground nutmeg<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag herb" onclick="cycleTag(this)">curry powder<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag herb" onclick="cycleTag(this)">bay leaves — whole<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag herb" onclick="cycleTag(this)">rosemary<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag herb" onclick="cycleTag(this)">cumin<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag herb" onclick="cycleTag(this)">oregano<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag herb" onclick="cycleTag(this)">parsley<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag herb" onclick="cycleTag(this)">allspice whole<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag special" style="background:#fdf5e0;color:#7a5800;border-color:#f0d878;" onclick="cycleTag(this)">saffron ✦<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <button class="add-tag-btn" onclick="openAdd('section-herbs','herb')">+ add</button>
+      <span class="add-input-wrap" id="addinput-section-herbs">
+        <input class="add-input" type="text" placeholder="new spice…" />
+        <button class="add-confirm" onclick="confirmAdd('section-herbs','herb')">add</button>
+      </span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-label">Herbs & spices — mixes & rubs</div>
+    <div class="tag-grid" id="section-mixes">
+      <span class="tag herb" onclick="cycleTag(this)">Sicilian spice mix<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag herb" onclick="cycleTag(this)">Roast vegetables & fries blend<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag herb" onclick="cycleTag(this)">McCormick Brown Sugar Bourbon<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag herb" onclick="cycleTag(this)">McCormick Montreal Steak<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag herb" onclick="cycleTag(this)">Tajín<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag herb" onclick="cycleTag(this)">Herbes de Provence<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag herb" onclick="cycleTag(this)">pumpkin pie spice<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag special" onclick="cycleTag(this)">truffle salt ✦<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <button class="add-tag-btn" onclick="openAdd('section-mixes','herb')">+ add</button>
+      <span class="add-input-wrap" id="addinput-section-mixes">
+        <input class="add-input" type="text" placeholder="new mix…" />
+        <button class="add-confirm" onclick="confirmAdd('section-mixes','herb')">add</button>
+      </span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-label">Grains, pasta & legumes</div>
+    <div class="tag-grid" id="section-grains">
+      <span class="tag grain" onclick="cycleTag(this)">farfalle<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag grain" onclick="cycleTag(this)">penne — Rummo<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag grain" onclick="cycleTag(this)">fusilli — Rummo<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag grain" onclick="cycleTag(this)">linguine — DeLallo<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag grain" onclick="cycleTag(this)">spaghetti<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag grain" onclick="cycleTag(this)">pappardelle<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag grain" onclick="cycleTag(this)">fettuccine<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag grain" onclick="cycleTag(this)">farfalline<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag grain" onclick="cycleTag(this)">couscous — medium<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag grain" onclick="cycleTag(this)">rice<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag grain" onclick="cycleTag(this)">oats<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag grain" onclick="cycleTag(this)">grits<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag grain" onclick="cycleTag(this)">buckwheat<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag grain" onclick="cycleTag(this)">bulgur — yellow<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag grain" onclick="cycleTag(this)">bulgur — brown coarse<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag grain" onclick="cycleTag(this)">barley<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag grain" onclick="cycleTag(this)">millet<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag grain" onclick="cycleTag(this)">semolina<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag grain" onclick="cycleTag(this)">lentils<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag grain" onclick="cycleTag(this)">white beans<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag grain" onclick="cycleTag(this)">yellow peas — small<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag grain" onclick="cycleTag(this)">green peas — small<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag grain" onclick="cycleTag(this)">pistachios<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag grain" onclick="cycleTag(this)">walnuts<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag grain" onclick="cycleTag(this)">dry apricots<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag grain" onclick="cycleTag(this)">dry cranberries / raisins<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <button class="add-tag-btn" onclick="openAdd('section-grains','grain')">+ add</button>
+      <span class="add-input-wrap" id="addinput-section-grains">
+        <input class="add-input" type="text" placeholder="new item…" />
+        <button class="add-confirm" onclick="confirmAdd('section-grains','grain')">add</button>
+      </span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-label">Jars & sauces — shelf</div>
+    <div class="tag-grid" id="section-jars">
+      <span class="tag sauce" onclick="cycleTag(this)">caponata<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag sauce" onclick="cycleTag(this)">sundried tomatoes<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag sauce" onclick="cycleTag(this)">olive & sundried tomato spread<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag sauce" onclick="cycleTag(this)">marinated mushrooms<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag sauce" onclick="cycleTag(this)">pasta sauce — tomato basil<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag sauce" onclick="cycleTag(this)">red pesto<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag sauce" onclick="cycleTag(this)">pesto Siciliana<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag sauce" onclick="cycleTag(this)">Tikka Masala<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag sauce" onclick="cycleTag(this)">balsamic vinegar of Modena<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag sauce" onclick="cycleTag(this)">capers<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag sauce" onclick="cycleTag(this)">banana peppers<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag sauce" onclick="cycleTag(this)">roasted red bell pepper strips<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag sauce" onclick="cycleTag(this)">Honey BBQ sauce<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag sauce" onclick="cycleTag(this)">Cholula hot sauce<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag sauce" onclick="cycleTag(this)">Whiskey Habanero hot sauce<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag sauce" onclick="cycleTag(this)">Caribbean sauce — Lunds & Byerlys<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag sauce" onclick="cycleTag(this)">cocktail sauce<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <button class="add-tag-btn" onclick="openAdd('section-jars','sauce')">+ add</button>
+      <span class="add-input-wrap" id="addinput-section-jars">
+        <input class="add-input" type="text" placeholder="new jar…" />
+        <button class="add-confirm" onclick="confirmAdd('section-jars','sauce')">add</button>
+      </span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-label">Cans</div>
+    <div class="tag-grid" id="section-cans">
+      <span class="tag can" onclick="cycleTag(this)">chopped clams × 3<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag can" onclick="cycleTag(this)">tuna<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag can" onclick="cycleTag(this)">moroccan sardines<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag can" onclick="cycleTag(this)">spiced calamari in ragout sauce<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag can" onclick="cycleTag(this)">sliced beets × 2<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag can" onclick="cycleTag(this)">diced tomatoes<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag can" onclick="cycleTag(this)">tomato paste<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag can" onclick="cycleTag(this)">medium pitted black olives<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag can" onclick="cycleTag(this)">Greek Kalamata olives<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag can" onclick="cycleTag(this)">Manzanilla green olives<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag can" onclick="cycleTag(this)">Bush's baked beans 😄<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag can" onclick="cycleTag(this)">pinto beans<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag can" onclick="cycleTag(this)">sweet corn — cream style<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag can" onclick="cycleTag(this)">whole corn<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag can" onclick="cycleTag(this)">sweet peas<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <button class="add-tag-btn" onclick="openAdd('section-cans','can')">+ add</button>
+      <span class="add-input-wrap" id="addinput-section-cans">
+        <input class="add-input" type="text" placeholder="new can…" />
+        <button class="add-confirm" onclick="confirmAdd('section-cans','can')">add</button>
+      </span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-label">Staples</div>
+    <div class="tag-grid" id="section-staples">
+      <span class="tag" onclick="cycleTag(this)">olive oil<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag" onclick="cycleTag(this)">vegetable oil<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag" onclick="cycleTag(this)">white vinegar<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag" onclick="cycleTag(this)">flour<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag" onclick="cycleTag(this)">cane sugar<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag" onclick="cycleTag(this)">cornstarch<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag" onclick="cycleTag(this)">breadcrumbs<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag" onclick="cycleTag(this)">pancake mix<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag" onclick="cycleTag(this)">iodized salt<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <button class="add-tag-btn" onclick="openAdd('section-staples','')">+ add</button>
+      <span class="add-input-wrap" id="addinput-section-staples">
+        <input class="add-input" type="text" placeholder="new staple…" />
+        <button class="add-confirm" onclick="confirmAdd('section-staples','')">add</button>
+      </span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-label">Fridge</div>
+    <div class="tag-grid" id="section-fridge">
+      <span class="tag" onclick="cycleTag(this)">butter<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag" onclick="cycleTag(this)">eggs<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag" onclick="cycleTag(this)">Fage yogurt<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag" onclick="cycleTag(this)">lemons<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag" onclick="cycleTag(this)">garlic<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag" onclick="cycleTag(this)">ginger — fresh<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag" onclick="cycleTag(this)">Dijon mustard<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag" onclick="cycleTag(this)">mayo<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag" onclick="cycleTag(this)">horseradish sauce<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag" onclick="cycleTag(this)">ketchup<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag" onclick="cycleTag(this)">soy sauce<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag" onclick="cycleTag(this)">pickles<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag" onclick="cycleTag(this)">maple syrup<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag" onclick="cycleTag(this)">chicken broth (open)<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag special" onclick="cycleTag(this)">Parmigiano Reggiano — whole piece ✦<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag" onclick="cycleTag(this)">Parmesan grated — Boar's Head<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag" onclick="cycleTag(this)">Harissa<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag" onclick="cycleTag(this)">sweet chili sauce<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag" onclick="cycleTag(this)">horseradish<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag" onclick="cycleTag(this)">chopped calabrian peppers<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag" onclick="cycleTag(this)">sliced jalapeños<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <button class="add-tag-btn" onclick="openAdd('section-fridge','')">+ add</button>
+      <span class="add-input-wrap" id="addinput-section-fridge">
+        <input class="add-input" type="text" placeholder="new item…" />
+        <button class="add-confirm" onclick="confirmAdd('section-fridge','')">add</button>
+      </span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-label">Freezer</div>
+    <div class="tag-grid" id="section-freezer">
+      <span class="tag" onclick="cycleTag(this)">Mediterranean couscous & quinoa blend (steam bag)<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag" onclick="cycleTag(this)">Indian-style sweet potato curry blend (steam bag)<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag" onclick="cycleTag(this)">mixed vegetables (steam bag)<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag" onclick="cycleTag(this)">organic mixed vegetables (steam bag)<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag" onclick="cycleTag(this)">salmon (frozen)<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag" onclick="cycleTag(this)">sausages<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag" onclick="cycleTag(this)">frozen berries<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag" onclick="cycleTag(this)">frozen cranberries<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <button class="add-tag-btn" onclick="openAdd('section-freezer','')">+ add</button>
+      <span class="add-input-wrap" id="addinput-section-freezer">
+        <input class="add-input" type="text" placeholder="new item…" />
+        <button class="add-confirm" onclick="confirmAdd('section-freezer','')">add</button>
+      </span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-label">Wine</div>
+    <div class="tag-grid" id="section-wine">
+      <span class="tag sauce" onclick="cycleTag(this)">Giorgio & Gianni Pinot Grigio — cooking & drinking<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <button class="add-tag-btn" onclick="openAdd('section-wine','sauce')">+ add</button>
+      <span class="add-input-wrap" id="addinput-section-wine">
+        <input class="add-input" type="text" placeholder="new wine…" />
+        <button class="add-confirm" onclick="confirmAdd('section-wine','sauce')">add</button>
+      </span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-label">Bar</div>
+    <div class="tag-grid" id="section-bar">
+      <span class="tag bar" onclick="cycleTag(this)">rum<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag bar" onclick="cycleTag(this)">whiskey<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag bar" onclick="cycleTag(this)">cognac<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag bar" onclick="cycleTag(this)">gin<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag bar" onclick="cycleTag(this)">Martini rosso<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag bar" onclick="cycleTag(this)">Kahlúa<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag bar" onclick="cycleTag(this)">Peychaud's bitters<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag bar" onclick="cycleTag(this)">Porto<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag bar low" onclick="cycleTag(this)">Aperol — coming<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <span class="tag bar low" onclick="cycleTag(this)">Campari — coming<span class="remove-x" onclick="removeTag(event,this)">×</span></span>
+      <button class="add-tag-btn" onclick="openAdd('section-bar','bar')">+ add</button>
+      <span class="add-input-wrap" id="addinput-section-bar">
+        <input class="add-input" type="text" placeholder="new bottle…" />
+        <button class="add-confirm" onclick="confirmAdd('section-bar','bar')">add</button>
+      </span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const STORAGE_KEY = 'pantry_states';
+const REMOVED_KEY = 'pantry_removed';
+
+function getStates() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch { return {}; }
+}
+
+function saveStates(s) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(s));
+}
+
+function getRemoved() {
+  try { return JSON.parse(localStorage.getItem(REMOVED_KEY)) || []; } catch { return []; }
+}
+
+function saveRemoved(r) {
+  localStorage.setItem(REMOVED_KEY, JSON.stringify(r));
+}
+
+function tagKey(el) {
+  const section = el.closest('.tag-grid').id;
+  const text = el.childNodes[0].textContent.trim();
+  return section + '::' + text;
+}
+
+function cycleTag(el) {
+  const states = getStates();
+  const key = tagKey(el);
+  const current = states[key] || 'normal';
+  const next = current === 'normal' ? 'low' : current === 'low' ? 'out' : 'normal';
+  states[key] = next;
+  saveStates(states);
+  applyState(el, next);
+}
+
+function applyState(el, state) {
+  el.classList.remove('low', 'out');
+  if (state === 'low') el.classList.add('low');
+  if (state === 'out') el.classList.add('out');
+}
+
+function removeTag(e, xEl) {
+  e.stopPropagation();
+  const tag = xEl.closest('.tag');
+  const key = tagKey(tag);
+  const states = getStates();
+  delete states[key];
+  saveStates(states);
+  const removed = getRemoved();
+  if (!removed.includes(key)) removed.push(key);
+  saveRemoved(removed);
+  tag.remove();
+}
+
+function openAdd(sectionId, type) {
+  const wrap = document.getElementById('addinput-' + sectionId);
+  wrap.classList.add('open');
+  wrap.querySelector('input').focus();
+}
+
+function confirmAdd(sectionId, type) {
+  const wrap = document.getElementById('addinput-' + sectionId);
+  const input = wrap.querySelector('input');
+  const val = input.value.trim();
+  if (!val) { wrap.classList.remove('open'); return; }
+
+  const grid = document.getElementById(sectionId);
+  const tag = document.createElement('span');
+  tag.className = 'tag' + (type ? ' ' + type : '');
+  tag.setAttribute('onclick', 'cycleTag(this)');
+  tag.innerHTML = val + '<span class="remove-x" onclick="removeTag(event,this)">×</span>';
+
+  grid.insertBefore(tag, wrap.previousElementSibling);
+  input.value = '';
+  wrap.classList.remove('open');
+}
+
+// Restore states on load
+window.addEventListener('DOMContentLoaded', () => {
+  const states = getStates();
+  const removed = getRemoved();
+  document.querySelectorAll('.tag').forEach(el => {
+    const key = tagKey(el);
+    if (removed.includes(key)) { el.remove(); return; }
+    if (states[key]) applyState(el, states[key]);
+  });
+});
+</script>
+</body>
+</html>

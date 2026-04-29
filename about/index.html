@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — My Kitchen</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #f8f3ec;
+    --warm-white: #fdfaf6;
+    --linen: #ede5d8;
+    --sand: #d9cbb8;
+    --walnut: #7a5c38;
+    --bark: #4a3018;
+    --ink: #1a1208;
+    --border: rgba(154, 125, 90, 0.2);
+    --border-med: rgba(154, 125, 90, 0.35);
+  }
+
+  body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--ink); min-height: 100vh; }
+  .page { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+
+  .back-btn {
+    font-size: 12px; font-weight: 400; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--walnut); text-decoration: none;
+    display: inline-flex; align-items: center; gap: 4px;
+    transition: color 0.15s; margin-bottom: 2rem;
+  }
+  .back-btn:hover { color: var(--bark); }
+
+  .header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 0.5px solid var(--border-med);
+  }
+  .header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px; font-weight: 400; color: var(--ink);
+    letter-spacing: 0.01em; line-height: 1; margin-bottom: 4px;
+  }
+  .header h1 em { font-style: italic; color: var(--walnut); }
+  .header-sub {
+    font-size: 12px; font-weight: 300; letter-spacing: 0.12em;
+    color: var(--walnut); text-transform: uppercase;
+  }
+
+  .section-intro {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px; font-style: italic; color: var(--walnut);
+    margin-bottom: 1.75rem;
+  }
+
+  .card {
+    background: var(--warm-white);
+    border: 0.5px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-label {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--walnut); margin-bottom: 1rem;
+  }
+
+  .row {
+    display: flex; gap: 8px;
+    padding: 9px 0;
+    border-bottom: 0.5px solid var(--border);
+    font-size: 13px; align-items: flex-start;
+  }
+  .row:last-child { border-bottom: none; }
+
+  .row-label {
+    min-width: 130px; font-size: 11px;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--walnut); padding-top: 1px; font-weight: 400;
+  }
+
+  .row-val { color: var(--ink); line-height: 1.6; font-weight: 300; }
+
+  @media (max-width: 480px) {
+    .page { padding: 1.5rem 1rem 3rem; }
+    .header h1 { font-size: 28px; }
+    .row { flex-direction: column; gap: 2px; }
+    .row-label { min-width: unset; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <a class="back-btn" href="../index.html">← My Kitchen</a>
+
+  <div class="header">
+    <h1>A<em>bout</em></h1>
+    <div class="header-sub">Who cooks here and how.</div>
+  </div>
+
+  <p class="section-intro">The kitchen, the cook, the philosophy.</p>
+
+  <div class="card">
+    <div class="card-label">The kitchen</div>
+    <div class="row"><span class="row-label">Location</span><span class="row-val">Fridley, MN</span></div>
+    <div class="row"><span class="row-label">Household</span><span class="row-val">European cook + one American (tolerant, will eat what's made 😄)</span></div>
+    <div class="row"><span class="row-label">Style</span><span class="row-val">French base, Italian and Polish soul — precise, flavor-forward, instinctive. Elegance through simplicity rather than complexity.</span></div>
+    <div class="row"><span class="row-label">Complexity</span><span class="row-val">Weeknights: stovetop or oven doing the work, 45 min max. Weekends: willing to go deeper.</span></div>
+    <div class="row"><span class="row-label">Proteins</span><span class="row-val">Any — no allergies, no strong preferences</span></div>
+    <div class="row"><span class="row-label">Philosophy</span><span class="row-val">Cooking is data. A recipe is an algorithm for joy.</span></div>
+  </div>
+
+  <div class="card">
+    <div class="card-label">Equipment</div>
+    <div class="row"><span class="row-label">Dutch oven</span><span class="row-val">Creamy beige, 3qt — beautiful, earns its place every time</span></div>
+    <div class="row"><span class="row-label">Pans</span><span class="row-val">Non-stick medium & small — upgrading to cast iron 28cm soon</span></div>
+    <div class="row"><span class="row-label">Thermometer</span><span class="row-val">Yes — used correctly 😄</span></div>
+    <div class="row"><span class="row-label">Baking sheet</span><span class="row-val">Yes</span></div>
+  </div>
+
+  <div class="card">
+    <div class="card-label">Where to shop</div>
+    <div class="row"><span class="row-label">Primary</span><span class="row-val">Target Fridley</span></div>
+    <div class="row"><span class="row-label">Secondary</span><span class="row-val">Target Roseville — more variety</span></div>
+    <div class="row"><span class="row-label">Tolerated</span><span class="row-val">Cub Foods, New Brighton Blvd</span></div>
+    <div class="row"><span class="row-label">For variety</span><span class="row-val">Trader Joe's, Red Fox Rd, Shoreview — worth the trip</span></div>
+    <div class="row"><span class="row-label">Treat</span><span class="row-val">Lunds & Byerlys — "instead of going out" shopping 😄</span></div>
+  </div>
+
+</div>
+</body>
+</html>

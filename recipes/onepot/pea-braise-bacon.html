@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pea Braise — My Kitchen</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #f8f3ec; --warm-white: #fdfaf6; --linen: #ede5d8; --sand: #d9cbb8;
+    --walnut: #7a5c38; --bark: #4a3018; --ink: #1a1208;
+    --border: rgba(154, 125, 90, 0.2); --border-med: rgba(154, 125, 90, 0.35);
+  }
+  body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--ink); min-height: 100vh; }
+  .page { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+  .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.5rem; flex-wrap: wrap; }
+  .breadcrumb a { color: var(--walnut); text-decoration: none; transition: color 0.15s; }
+  .breadcrumb a:hover { color: var(--bark); }
+  .breadcrumb span { color: var(--sand); }
+  .back-arrow { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--walnut); text-decoration: none; margin-bottom: 1.5rem; transition: color 0.15s; }
+  .back-arrow:hover { color: var(--bark); }
+  .header { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 0.5px solid var(--border-med); }
+  .header h1 { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 400; color: var(--ink); line-height: 1.2; margin-bottom: 6px; }
+  .header h1 em { font-style: italic; color: var(--walnut); }
+  .meta { font-size: 11px; color: var(--walnut); letter-spacing: 0.05em; font-weight: 300; margin-bottom: 1rem; }
+  .stars { color: var(--walnut); font-size: 11px; letter-spacing: 1px; }
+  .tag-grid { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.5rem; }
+  .tag { padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 400; background: var(--linen); color: var(--bark); border: 0.5px solid var(--sand); }
+  .tag.next { background: #fff8ec; color: #7a5c20; border-color: #f0d898; }
+  .card { background: var(--warm-white); border: 0.5px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; }
+  .step-label { font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--walnut); margin-bottom: 0.6rem; }
+  .step-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 500; color: var(--ink); margin-bottom: 0.75rem; }
+  .step-body { font-size: 13px; color: var(--ink); line-height: 1.8; font-weight: 300; }
+  .step-body strong { font-weight: 500; color: var(--bark); }
+  .divider { height: 0.5px; background: var(--border); margin: 1.25rem 0; }
+  .note { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-style: italic; color: var(--walnut); line-height: 1.6; margin-top: 1rem; }
+  @media (max-width: 480px) { .page { padding: 1.5rem 1rem 3rem; } .header h1 { font-size: 24px; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="breadcrumb">
+    <a href="../../../index.html">My Kitchen</a><span>·</span>
+    <a href="../../index.html">Recipes</a><span>·</span>
+    <a href="../index.html">One Pot</a><span>·</span>
+    <a href="#">Pea braise</a>
+  </div>
+
+  <a class="back-arrow" href="../index.html">← One Pot</a>
+
+  <div class="header">
+    <h1>Green and yellow <em>pea braise</em> with bacon and sausages</h1>
+    <div class="meta">April 22, 2026 &nbsp;·&nbsp; stovetop · Dutch oven &nbsp;·&nbsp; serves 2 &nbsp;·&nbsp; <span class="stars">★★★★★</span></div>
+  </div>
+
+  <div class="tag-grid">
+    <span class="tag">green and yellow peas — 1.5 cups mixed, soaked overnight</span>
+    <span class="tag">bacon strips × 4 — cut into lardons</span>
+    <span class="tag next">small sausages × 7 + Boar's Head sausages — two kinds ✦</span>
+    <span class="tag">onion × 1 medium</span>
+    <span class="tag">garlic — 3–4 cloves</span>
+    <span class="tag">carrots × 2, chunky coins</span>
+    <span class="tag">1 medium tomato, roughly chopped</span>
+    <span class="tag">chicken broth ~400ml</span>
+    <span class="tag">white wine ~60ml</span>
+    <span class="tag">smoked paprika · rosemary · coriander · red pepper flakes</span>
+    <span class="tag">bay leaves × 2</span>
+    <span class="tag next">whole cloves × 2 ✦</span>
+    <span class="tag">olive oil</span>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Night before</div>
+    <div class="step-title">Soak the peas</div>
+    <div class="step-body">1.5 cups mixed green and yellow peas in plenty of cold water, overnight. Drain and rinse before using.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 1 — 5 min</div>
+    <div class="step-title">Render the bacon</div>
+    <div class="step-body">Cold Dutch oven, no oil. Bacon lardons in, medium heat. Let fat render slowly — stir occasionally. You want crispy golden lardons and a good pool of fat. This is your flavor base. Out onto a plate, leave all the fat.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 2 — 5 min</div>
+    <div class="step-title">Brown the sausages</div>
+    <div class="step-body">Same fat, medium-high heat. Sausages in — don't touch 2–3 minutes, get color. Turn, 2 more minutes. Out onto same plate as bacon. Leave the fat.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 3 — 8 min</div>
+    <div class="step-title">Build the base</div>
+    <div class="step-body">Medium heat. Onion in — soften 4 minutes. Garlic in — 1 minute. Carrots in — stir 2 minutes. Smoked paprika, coriander, rosemary, red pepper flakes — stir 30 seconds, bloom in the fat.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 4 — 3 min</div>
+    <div class="step-title">Wine and tomato</div>
+    <div class="step-body">White wine in — scrape the bottom. Reduce 1–2 minutes. Tomato in, crush with spoon, stir 1 minute.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 5 — 40 min</div>
+    <div class="step-title">Peas and broth</div>
+    <div class="step-body">Drained rinsed peas in, stir to coat. Pour over 400ml chicken broth — just cover the peas, add splash more if needed. Bay leaves and <strong>whole cloves × 2</strong> in. Bacon and sausages nestled back on top. Gentle boil, then immediately low simmer. Lid on. 40 minutes. Check once at 20 min.<br><br>At 40 min — peas tender and creamy, broth silky. If still bite — 10 more minutes.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Finish</div>
+    <div class="step-title">Serve</div>
+    <div class="step-body">Fish out bay leaves and cloves. Taste — go easy on salt, bacon and sausages are already salty. Drizzle of olive oil. Deep bowls, bread alongside. 🥖</div>
+    <div class="divider"></div>
+    <div class="note">Two kinds of sausage — the decision made itself and was correct. Whole cloves again, becoming a signature. Green and yellow peas beautiful together — sweet, earthy, colorful. The white bean magic but lighter. 🥘</div>
+  </div>
+
+</div>
+</body>
+</html>

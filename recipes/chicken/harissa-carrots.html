@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harissa Chicken — My Kitchen</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #f8f3ec; --warm-white: #fdfaf6; --linen: #ede5d8; --sand: #d9cbb8;
+    --walnut: #7a5c38; --bark: #4a3018; --ink: #1a1208;
+    --border: rgba(154, 125, 90, 0.2); --border-med: rgba(154, 125, 90, 0.35);
+  }
+  body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--ink); min-height: 100vh; }
+  .page { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+  .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2rem; flex-wrap: wrap; }
+  .breadcrumb a { color: var(--walnut); text-decoration: none; transition: color 0.15s; }
+  .breadcrumb a:hover { color: var(--bark); }
+  .breadcrumb span { color: var(--sand); }
+  .header { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 0.5px solid var(--border-med); }
+  .header h1 { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 400; color: var(--ink); line-height: 1.2; margin-bottom: 6px; }
+  .header h1 em { font-style: italic; color: var(--walnut); }
+  .meta { font-size: 11px; color: var(--walnut); letter-spacing: 0.05em; font-weight: 300; margin-bottom: 1rem; }
+  .stars { color: var(--walnut); font-size: 11px; letter-spacing: 1px; }
+  .tag-grid { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.5rem; }
+  .tag { padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 400; background: var(--linen); color: var(--bark); border: 0.5px solid var(--sand); }
+  .tag.next { background: #fff8ec; color: #7a5c20; border-color: #f0d898; }
+  .card { background: var(--warm-white); border: 0.5px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; }
+  .step-label { font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--walnut); margin-bottom: 0.6rem; }
+  .step-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 500; color: var(--ink); margin-bottom: 0.75rem; }
+  .step-body { font-size: 13px; color: var(--ink); line-height: 1.8; font-weight: 300; }
+  .step-body strong { font-weight: 500; color: var(--bark); }
+  .divider { height: 0.5px; background: var(--border); margin: 1.25rem 0; }
+  .note { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-style: italic; color: var(--walnut); line-height: 1.6; margin-top: 1rem; }
+  .note-small { font-size: 11px; color: var(--walnut); font-weight: 300; margin-top: 0.5rem; }
+  .back-arrow {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12px; font-weight: 400; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--walnut);
+    text-decoration: none; margin-bottom: 1.5rem;
+    transition: color 0.15s;
+  }
+  .back-arrow:hover { color: var(--bark); }
+  @media (max-width: 480px) { .page { padding: 1.5rem 1rem 3rem; } .header h1 { font-size: 24px; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="breadcrumb">
+    <a href="../../../index.html">My Kitchen</a><span>·</span>
+    <a href="../../index.html">Recipes</a><span>·</span>
+    <a href="../index.html">Chicken</a><span>·</span>
+    <a href="#">Harissa chicken</a>
+  </div>
+
+  <a class="back-arrow" href="../index.html">← Chicken</a>
+
+  <div class="header">
+    <h1><em>Harissa</em> chicken thighs with roasted carrots</h1>
+    <div class="meta">April 2, 2026 &nbsp;·&nbsp; oven &nbsp;·&nbsp; serves 2 &nbsp;·&nbsp; <span class="stars">★★★★☆</span></div>
+  </div>
+
+  <div class="tag-grid">
+    <span class="tag next">chicken thighs — bone-in skin-on next time ✦</span>
+    <span class="tag">Harissa</span>
+    <span class="tag">carrots</span>
+    <span class="tag">mini sweet peppers</span>
+    <span class="tag">olive oil</span>
+    <span class="tag">couscous</span>
+    <span class="tag">Indian-style sweet potato curry steam bag</span>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Start here — oven on 200°C / 400°F</div>
+    <div class="step-title">35–40 min before dinner</div>
+    <div class="step-body">Everything goes into the oven together. The timing works itself out.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 1 — 35 min</div>
+    <div class="step-title">Chicken and carrots into the oven</div>
+    <div class="step-body">Pat chicken thighs dry. Rub generously with harissa all over — don't be shy, it mellows in the oven. Drizzle with olive oil (important without skin — protects from drying). Peel and cut carrots into similar-sized sticks. Toss carrots with olive oil and a little harissa. Arrange chicken in the center, carrots and whole mini sweet peppers around the edges — edges run hotter, perfect for caramelizing vegetables. Single layer, nothing piled.<br><br>Into the oven. Timer 35 minutes. Halfway through, check carrots — shake the pan if they look pale. Chicken is done at <strong>74°C / 165°F</strong>. The peppers will go slightly sweet and smoky.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 2 — 5 min before serving</div>
+    <div class="step-title">Couscous</div>
+    <div class="step-body">Boil ~250ml water or chicken broth. Pour over ~150g medium couscous. Add knob of butter, pinch of salt. Cover 5 minutes. Fluff with fork. Done.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 3 — last 5 min</div>
+    <div class="step-title">Steam bag</div>
+    <div class="step-body">Indian-Style Sweet Potato Curry bag — microwave per instructions (~4–5 min). The curry sauce is completely coherent with the harissa. Warm through, done.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Plate</div>
+    <div class="step-title">Bring it together</div>
+    <div class="step-body">Couscous as the base. Steam bag alongside or on top. Harissa chicken and roasted carrots and peppers over everything. One cohesive warming bowl.</div>
+    <div class="divider"></div>
+    <div class="note">Rainy evening. Cava Brut paired beautifully — bubbles cut through the harissa heat perfectly. 🌧️🥂</div>
+    <div class="note-small">Next time: bone-in skin-on chicken — skin crisps with harissa, bone adds flavour, stays juicier. Worth the upgrade.</div>
+  </div>
+
+</div>
+</body>
+</html>

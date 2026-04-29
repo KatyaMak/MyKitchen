@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Caribbean Chicken — My Kitchen</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #f8f3ec; --warm-white: #fdfaf6; --linen: #ede5d8; --sand: #d9cbb8;
+    --walnut: #7a5c38; --bark: #4a3018; --ink: #1a1208;
+    --border: rgba(154, 125, 90, 0.2); --border-med: rgba(154, 125, 90, 0.35);
+  }
+  body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--ink); min-height: 100vh; }
+  .page { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+  .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.5rem; flex-wrap: wrap; }
+  .breadcrumb a { color: var(--walnut); text-decoration: none; transition: color 0.15s; }
+  .breadcrumb a:hover { color: var(--bark); }
+  .breadcrumb span { color: var(--sand); }
+  .back-arrow { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--walnut); text-decoration: none; margin-bottom: 1.5rem; transition: color 0.15s; }
+  .back-arrow:hover { color: var(--bark); }
+  .header { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 0.5px solid var(--border-med); }
+  .header h1 { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 400; color: var(--ink); line-height: 1.2; margin-bottom: 6px; }
+  .header h1 em { font-style: italic; color: var(--walnut); }
+  .meta { font-size: 11px; color: var(--walnut); letter-spacing: 0.05em; font-weight: 300; margin-bottom: 1rem; }
+  .stars { color: var(--walnut); font-size: 11px; letter-spacing: 1px; }
+  .tag-grid { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.5rem; }
+  .tag { padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 400; background: var(--linen); color: var(--bark); border: 0.5px solid var(--sand); }
+  .tag.next { background: #fff8ec; color: #7a5c20; border-color: #f0d898; }
+  .card { background: var(--warm-white); border: 0.5px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; }
+  .step-label { font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--walnut); margin-bottom: 0.6rem; }
+  .step-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 500; color: var(--ink); margin-bottom: 0.75rem; }
+  .step-body { font-size: 13px; color: var(--ink); line-height: 1.8; font-weight: 300; }
+  .step-body strong { font-weight: 500; color: var(--bark); }
+  .divider { height: 0.5px; background: var(--border); margin: 1.25rem 0; }
+  .note { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-style: italic; color: var(--walnut); line-height: 1.6; margin-top: 1rem; }
+  .note-small { font-size: 11px; color: var(--walnut); font-weight: 300; margin-top: 0.75rem; line-height: 1.7; }
+  @media (max-width: 480px) { .page { padding: 1.5rem 1rem 3rem; } .header h1 { font-size: 24px; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="breadcrumb">
+    <a href="../../../index.html">My Kitchen</a><span>·</span>
+    <a href="../../index.html">Recipes</a><span>·</span>
+    <a href="../index.html">Pre-made Sauces</a><span>·</span>
+    <a href="#">Caribbean chicken</a>
+  </div>
+
+  <a class="back-arrow" href="../index.html">← Pre-made Sauces</a>
+
+  <div class="header">
+    <h1><em>Caribbean</em> chicken tenderloins with pineapple & shrimp</h1>
+    <div class="meta">April 21, 2026 &nbsp;·&nbsp; stovetop &nbsp;·&nbsp; 20 minutes &nbsp;·&nbsp; serves 2 &nbsp;·&nbsp; <span class="stars">★★★★★</span></div>
+  </div>
+
+  <div class="tag-grid">
+    <span class="tag">chicken tenderloins ~250g</span>
+    <span class="tag">shrimp — handful, thawed and patted dry</span>
+    <span class="tag">fresh pineapple — chunks 2–3cm</span>
+    <span class="tag next">Caribbean sauce — Lunds & Byerlys, generous pour ✦</span>
+    <span class="tag">ground nutmeg — pinch off heat</span>
+    <span class="tag">salt, pepper, oil</span>
+    <span class="tag">jasmine rice — alongside</span>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Start here — 18 min before serving</div>
+    <div class="step-title">Rice first</div>
+    <div class="step-body">1 cup jasmine rice, rinsed. 1.5 cups water, pinch of salt, knob of butter. Bring to boil, immediately lowest simmer, lid on, 18 minutes. Do not lift lid. Off heat, 5 more minutes. Fluff. Everything else fits inside those 18 minutes.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 1 — 6–8 min</div>
+    <div class="step-title">Sear the chicken</div>
+    <div class="step-body">Pat tenderloins dry, salt and pepper. Medium-high heat, oil shimmering. In — don't crowd, don't touch. 3–4 minutes first side until golden. Flip, 2–3 minutes. Out onto a plate to rest.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 2 — 3–4 min</div>
+    <div class="step-title">Caramelize the pineapple</div>
+    <div class="step-body">Same pan, same heat. Pineapple chunks in — single layer, don't stir immediately. Let them sit and go golden one side, 2 minutes. Toss once. They should look caramelized and smell incredible.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 3 — 2 min</div>
+    <div class="step-title">Sauce in</div>
+    <div class="step-body">Caribbean sauce in — generous, enough to coat everything. Stir, bubble and come together 1–2 minutes. Already fully seasoned — <strong>taste before adding any salt.</strong></div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 4 — 2 min</div>
+    <div class="step-title">Shrimp in</div>
+    <div class="step-body">Shrimp in — they go pink and curl, that's done. 2 minutes maximum. Don't overcook.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 5 — 1 min</div>
+    <div class="step-title">Chicken back in</div>
+    <div class="step-body">Tenderloins back in, toss gently to coat. Warm through 1 minute — already cooked, don't overdo it.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Finish</div>
+    <div class="step-title">Serve</div>
+    <div class="step-body">Off heat — pinch of ground nutmeg, stir once. Over jasmine rice, sauce poured over everything. 🍍</div>
+    <div class="divider"></div>
+    <div class="note">Tired weeknight, overripe pineapple, frostbitten shrimp, nutmeg "ready to go to school" — still amazing. Nutmeg off heat: quiet warm magic. 🌴</div>
+    <div class="note-small">Pre-made sauce philosophy: when the sauce is already perfect, trust it. Add texture (pineapple), add protein (shrimp), add one background spice (nutmeg). Don't compete with it.</div>
+  </div>
+
+</div>
+</body>
+</html>

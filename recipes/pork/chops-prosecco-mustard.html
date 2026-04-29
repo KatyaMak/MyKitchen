@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pork Chops — My Kitchen</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #f8f3ec; --warm-white: #fdfaf6; --linen: #ede5d8; --sand: #d9cbb8;
+    --walnut: #7a5c38; --bark: #4a3018; --ink: #1a1208;
+    --border: rgba(154, 125, 90, 0.2); --border-med: rgba(154, 125, 90, 0.35);
+  }
+  body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--ink); min-height: 100vh; }
+  .page { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+  .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2rem; flex-wrap: wrap; }
+  .breadcrumb a { color: var(--walnut); text-decoration: none; transition: color 0.15s; }
+  .breadcrumb a:hover { color: var(--bark); }
+  .breadcrumb span { color: var(--sand); }
+  .header { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 0.5px solid var(--border-med); }
+  .header h1 { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 400; color: var(--ink); line-height: 1.2; margin-bottom: 6px; }
+  .header h1 em { font-style: italic; color: var(--walnut); }
+  .meta { font-size: 11px; color: var(--walnut); letter-spacing: 0.05em; font-weight: 300; margin-bottom: 1rem; }
+  .stars { color: var(--walnut); font-size: 11px; letter-spacing: 1px; }
+  .tag-grid { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.5rem; }
+  .tag { padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 400; background: var(--linen); color: var(--bark); border: 0.5px solid var(--sand); }
+  .card { background: var(--warm-white); border: 0.5px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; }
+  .step-label { font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--walnut); margin-bottom: 0.6rem; }
+  .step-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 500; color: var(--ink); margin-bottom: 0.75rem; }
+  .step-body { font-size: 13px; color: var(--ink); line-height: 1.8; font-weight: 300; }
+  .step-body strong { font-weight: 500; color: var(--bark); }
+  .divider { height: 0.5px; background: var(--border); margin: 1.25rem 0; }
+  .note { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-style: italic; color: var(--walnut); line-height: 1.6; margin-top: 1rem; }
+  .note-small { font-size: 11px; color: var(--walnut); font-weight: 300; margin-top: 0.5rem; }
+  .back-arrow {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12px; font-weight: 400; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--walnut);
+    text-decoration: none; margin-bottom: 1.5rem;
+    transition: color 0.15s;
+  }
+  .back-arrow:hover { color: var(--bark); }
+  @media (max-width: 480px) { .page { padding: 1.5rem 1rem 3rem; } .header h1 { font-size: 24px; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="breadcrumb">
+    <a href="../../../index.html">My Kitchen</a><span>·</span>
+    <a href="../../index.html">Recipes</a><span>·</span>
+    <a href="../index.html">Pork</a><span>·</span>
+    <a href="#">Pork chops</a>
+  </div>
+
+  <a class="back-arrow" href="../index.html">← Pork</a>
+
+  <div class="header">
+    <h1>Pork chops with <em>Prosecco-mustard</em> cream sauce</h1>
+    <div class="meta">April 1, 2026 &nbsp;·&nbsp; stovetop + oven &nbsp;·&nbsp; serves 3 &nbsp;·&nbsp; <span class="stars">★★★★★</span></div>
+  </div>
+
+  <div class="tag-grid">
+    <span class="tag">pork loin chops — boneless center cut</span>
+    <span class="tag">Dijon mustard</span>
+    <span class="tag">Fage yogurt</span>
+    <span class="tag">Prosecco ~60ml</span>
+    <span class="tag">chicken broth ~60ml</span>
+    <span class="tag">sweet potatoes</span>
+    <span class="tag">baby spinach</span>
+    <span class="tag">smoked paprika</span>
+    <span class="tag">thyme</span>
+    <span class="tag">garlic</span>
+    <span class="tag">lemon</span>
+    <span class="tag">butter</span>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Start here</div>
+    <div class="step-title">Oven on — 200°C / 400°F</div>
+    <div class="step-body">Sweet potatoes go in first — they need the most time.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 1 — 35–40 min</div>
+    <div class="step-title">Sweet potatoes into the oven</div>
+    <div class="step-body">Cube sweet potatoes into similar-sized pieces so they cook evenly. Toss with olive oil, salt, smoked paprika, dried thyme, and 2 smashed garlic cloves. Single layer on a baking sheet — do not pile them up. Into the oven. Set a timer for 35–40 minutes. Forget them completely. They will be fine.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 2</div>
+    <div class="step-title">The pork chops — no beating needed</div>
+    <div class="step-body">These are center cut boneless loin chops, already uniform. No need to beat them — that's for schnitzel. Score the fat edge with 2–3 small cuts so the chop doesn't curl up in the pan. Pat the chops completely dry with paper towel — wet meat doesn't sear, it steams. Salt and pepper both sides generously.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 3 — 3–4 min per side</div>
+    <div class="step-title">Searing</div>
+    <div class="step-body">Big pan, loose — at least 2–3cm between each chop. If they're crowded they steam instead of sear. If the pan isn't big enough for all three: do two first, rest them, then the third.<br><br>Medium-high heat, small splash of oil. When the oil shimmers — chops in. Do not touch them. 3–4 minutes per side until genuinely golden. Check with thermometer: <strong>63°C / 145°F</strong>. Pull immediately.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 4 — 5 min, non-negotiable</div>
+    <div class="step-title">Rest</div>
+    <div class="step-body">Normal plate. Loosely tent with aluminum foil — fold a piece and lay it gently over the top, not wrapped tight. You want warmth in but a little steam out so the crust stays. 5 minutes. Do not cut. Do not peek. The juices need to settle.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 5 — same pan, do not wash it</div>
+    <div class="step-title">The sauce</div>
+    <div class="step-body">That's your flavor base on the bottom. Medium heat. Pour in ~60ml Prosecco — it will bubble dramatically. Scrape the bottom with a wooden spoon, all that color comes up. Let it reduce about 1 minute. Add ~60ml chicken broth. Reduce another minute.<br><br>One generous spoonful of Dijon mustard, stir. Two spoonfuls of Fage, stir gently. Salt, pepper, taste. It should coat a spoon but stay pourable. Pour into a small cup or mug to keep warm.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 6 — last 3 minutes, same pan</div>
+    <div class="step-title">Spinach</div>
+    <div class="step-body">Don't wash the pan. Knob of butter, optional garlic. Half a bag of baby spinach (~70g for three — it wilts down dramatically). Toss until just wilted. Squeeze of lemon. Done.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Plate</div>
+    <div class="step-title">Bring it together</div>
+    <div class="step-body">Chops whole or sliced, sauce poured over. Sweet potatoes alongside. Spinach next to it, still green and alive.</div>
+    <div class="divider"></div>
+    <div class="note">Pour yourself something. You did well. 🥂</div>
+  </div>
+
+</div>
+</body>
+</html>

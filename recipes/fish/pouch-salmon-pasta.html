@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salmon — My Kitchen</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #f8f3ec; --warm-white: #fdfaf6; --linen: #ede5d8; --sand: #d9cbb8;
+    --walnut: #7a5c38; --bark: #4a3018; --ink: #1a1208;
+    --border: rgba(154, 125, 90, 0.2); --border-med: rgba(154, 125, 90, 0.35);
+  }
+  body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--ink); min-height: 100vh; }
+  .page { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+  .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2rem; flex-wrap: wrap; }
+  .breadcrumb a { color: var(--walnut); text-decoration: none; transition: color 0.15s; }
+  .breadcrumb a:hover { color: var(--bark); }
+  .breadcrumb span { color: var(--sand); }
+  .header { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 0.5px solid var(--border-med); }
+  .header h1 { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 400; color: var(--ink); line-height: 1.2; margin-bottom: 6px; }
+  .header h1 em { font-style: italic; color: var(--walnut); }
+  .meta { font-size: 11px; color: var(--walnut); letter-spacing: 0.05em; font-weight: 300; margin-bottom: 1rem; }
+  .stars { color: var(--walnut); font-size: 11px; letter-spacing: 1px; }
+  .tag-grid { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.5rem; }
+  .tag { padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 400; background: var(--linen); color: var(--bark); border: 0.5px solid var(--sand); }
+  .tag.next { background: #fff8ec; color: #7a5c20; border-color: #f0d898; }
+  .card { background: var(--warm-white); border: 0.5px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; }
+  .step-label { font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--walnut); margin-bottom: 0.6rem; }
+  .step-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 500; color: var(--ink); margin-bottom: 0.75rem; }
+  .step-body { font-size: 13px; color: var(--ink); line-height: 1.8; font-weight: 300; }
+  .step-body strong { font-weight: 500; color: var(--bark); }
+  .step-body em { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; }
+  .divider { height: 0.5px; background: var(--border); margin: 1.25rem 0; }
+  .note { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-style: italic; color: var(--walnut); line-height: 1.6; margin-top: 1rem; }
+  .back-arrow {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12px; font-weight: 400; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--walnut);
+    text-decoration: none; margin-bottom: 1.5rem;
+    transition: color 0.15s;
+  }
+  .back-arrow:hover { color: var(--bark); }
+  @media (max-width: 480px) { .page { padding: 1.5rem 1rem 3rem; } .header h1 { font-size: 24px; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="breadcrumb">
+    <a href="../../../index.html">My Kitchen</a><span>·</span>
+    <a href="../../index.html">Recipes</a><span>·</span>
+    <a href="../index.html">Fish</a><span>·</span>
+    <a href="#">Salmon</a>
+  </div>
+
+  <a class="back-arrow" href="../index.html">← Fish</a>
+
+  <div class="header">
+    <h1>Salmon with cherry tomatoes, <em>capers</em> & parsley</h1>
+    <div class="meta">April 10, 2026 &nbsp;·&nbsp; stovetop &nbsp;·&nbsp; 20 minutes &nbsp;·&nbsp; serves 2 &nbsp;·&nbsp; <span class="stars">★★★★★</span></div>
+  </div>
+
+  <div class="tag-grid">
+    <span class="tag">pasta 160–180g (penne or fusilli ideal)</span>
+    <span class="tag">salmon pouch — Chicken of the Sea wild Alaskan pink</span>
+    <span class="tag">cherry tomatoes ~200–250g, halved</span>
+    <span class="tag">garlic — 3 cloves, sliced thin</span>
+    <span class="tag">olive oil — generous</span>
+    <span class="tag next">capers 1 tbsp — or Calabrian peppers substitute ✦</span>
+    <span class="tag">crushed red pepper flakes</span>
+    <span class="tag">fresh parsley — generous</span>
+    <span class="tag">lemon — half</span>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Start here</div>
+    <div class="step-title">Pasta water first — everything else follows</div>
+    <div class="step-body">Big pot, generous salt — it should taste like mild seawater. Bring to a full boil. Cook 160–180g pasta until just al dente — 1–2 minutes less than the package says. It finishes in the sauce. Before draining, reserve a full cup of pasta water — don't skip this.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 1 — while pasta cooks</div>
+    <div class="step-title">The garlic base</div>
+    <div class="step-body">Wide pan, medium heat. About 3 tablespoons olive oil. Slice 3 garlic cloves thin — sliced, not crushed, so they melt into the sauce. Gently golden, 2–3 minutes. Not brown. Add a pinch of crushed red pepper flakes.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 2 — 5–6 min</div>
+    <div class="step-title">Blister the cherry tomatoes</div>
+    <div class="step-body">About 200–250g cherry tomatoes, halved. Medium-high heat. Let them sit without stirring for a minute, then toss. You want them to blister, collapse, and go jammy. They should look like a loose sauce. Salt and pepper.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 3 — two options</div>
+    <div class="step-title">The briny element</div>
+    <div class="step-body"><em>Classic:</em> Add 1 tablespoon capers, stir in. They pop against the sweet tomato — that contrast is the whole point.<br><br><em>Substitute:</em> A small spoonful of chopped Calabrian peppers from the fridge. Different character — more heat, less brine — but equally good with salmon and tomatoes. Or a few sliced jalapeños. Both work. Note which you used — they're genuinely different directions. 😄</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 4 — 60 seconds maximum</div>
+    <div class="step-title">Salmon — gentle, last</div>
+    <div class="step-body">Open the pouch, flake roughly into the pan — chunky pieces, not mashed. Gentle heat only — the salmon is already cooked, you are just warming it through. 60 seconds maximum. Done. Overworking it makes it dry and sad.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Finish</div>
+    <div class="step-title">Bring it together</div>
+    <div class="step-body">Drained pasta straight into the pan. Toss well. Add pasta water gradually — a few splashes at a time — until the sauce coats everything and looks glossy. Squeeze of half a lemon. Generous fresh parsley — be really generous, it lifts everything. Raw drizzle of good olive oil. Toss once more. Plate immediately.<br><br><strong>Parmesan?</strong> Traditionally no. But a very light grating of Boar's Head at the end is acceptable if you want it. Don't stir it in. 😄</div>
+    <div class="divider"></div>
+    <div class="note">Sunny April evening. Light, bright, Mediterranean. Fast enough for a weeknight, good enough to feel like a real dinner. 🍝🌞</div>
+  </div>
+
+</div>
+</body>
+</html>

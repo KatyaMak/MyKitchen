@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lentils with Sausages — My Kitchen</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #f8f3ec; --warm-white: #fdfaf6; --linen: #ede5d8; --sand: #d9cbb8;
+    --walnut: #7a5c38; --bark: #4a3018; --ink: #1a1208;
+    --border: rgba(154, 125, 90, 0.2); --border-med: rgba(154, 125, 90, 0.35);
+  }
+  body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--ink); min-height: 100vh; }
+  .page { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+  .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2rem; flex-wrap: wrap; }
+  .breadcrumb a { color: var(--walnut); text-decoration: none; transition: color 0.15s; }
+  .breadcrumb a:hover { color: var(--bark); }
+  .breadcrumb span { color: var(--sand); }
+  .header { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 0.5px solid var(--border-med); }
+  .header h1 { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 400; color: var(--ink); line-height: 1.2; margin-bottom: 6px; }
+  .header h1 em { font-style: italic; color: var(--walnut); }
+  .meta { font-size: 11px; color: var(--walnut); letter-spacing: 0.05em; font-weight: 300; margin-bottom: 1rem; }
+  .stars { color: var(--walnut); font-size: 11px; letter-spacing: 1px; }
+  .tag-grid { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.5rem; }
+  .tag { padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 400; background: var(--linen); color: var(--bark); border: 0.5px solid var(--sand); }
+  .card { background: var(--warm-white); border: 0.5px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; }
+  .step-label { font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--walnut); margin-bottom: 0.6rem; }
+  .step-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 500; color: var(--ink); margin-bottom: 0.75rem; }
+  .step-body { font-size: 13px; color: var(--ink); line-height: 1.8; font-weight: 300; }
+  .step-body strong { font-weight: 500; color: var(--bark); }
+  .insight { background: var(--linen); border-radius: 8px; padding: 0.9rem 1rem; margin-top: 1rem; font-size: 12px; font-weight: 300; color: var(--bark); line-height: 1.7; border-left: 2px solid var(--sand); }
+  .divider { height: 0.5px; background: var(--border); margin: 1.25rem 0; }
+  .note { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-style: italic; color: var(--walnut); line-height: 1.6; margin-top: 1rem; }
+  .note-small { font-size: 11px; color: var(--walnut); font-weight: 300; margin-top: 0.5rem; }
+  .back-arrow {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12px; font-weight: 400; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--walnut);
+    text-decoration: none; margin-bottom: 1.5rem;
+    transition: color 0.15s;
+  }
+  .back-arrow:hover { color: var(--bark); }
+  @media (max-width: 480px) { .page { padding: 1.5rem 1rem 3rem; } .header h1 { font-size: 24px; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="breadcrumb">
+    <a href="../../../index.html">My Kitchen</a><span>·</span>
+    <a href="../../index.html">Recipes</a><span>·</span>
+    <a href="../index.html">One Pot</a><span>·</span>
+    <a href="#">Lentils</a>
+  </div>
+
+  <a class="back-arrow" href="../index.html">← One Pot</a>
+
+  <div class="header">
+    <h1>Lentils with sausages, <em>squash</em> and carrots</h1>
+    <div class="meta">April 4, 2026 &nbsp;·&nbsp; Dutch oven &nbsp;·&nbsp; serves 2 &nbsp;·&nbsp; <span class="stars">★★★★★</span></div>
+  </div>
+
+  <div class="tag-grid">
+    <span class="tag">breakfast sausages</span>
+    <span class="tag">dry lentils ~150–180g</span>
+    <span class="tag">green squash + yellow squash</span>
+    <span class="tag">carrots</span>
+    <span class="tag">red onion</span>
+    <span class="tag">garlic — 3 cloves</span>
+    <span class="tag">bell peppers</span>
+    <span class="tag">chicken broth ~400ml</span>
+    <span class="tag">white wine ~60ml</span>
+    <span class="tag">smoked paprika · coriander · turmeric · red pepper flakes</span>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Before you start</div>
+    <div class="step-title">Prep everything first</div>
+    <div class="step-body">Red onion — half, diced medium. Garlic — 3 cloves, sliced thin. Carrots — chunky coins or half-moons ~1cm thick. Squash — chunky pieces 2–3cm, skin on is fine. Bell peppers — roughly chopped, similar size to squash. Lentils — 150–180g dry, rinse quickly. Sausages — slice into thick rounds for faster cooking and better browning if not fully defrosted.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 1 — 5 min</div>
+    <div class="step-title">Brown the sausages</div>
+    <div class="step-body">Medium-high heat, Dutch oven, small splash of oil. Sausages in — don't touch for 2 minutes, let them get color. Turn, another 2 minutes. They don't need to be cooked through — just golden outside. Take out, set aside. Leave all the fat in the pot.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 2 — 5 min</div>
+    <div class="step-title">Build the base</div>
+    <div class="step-body">Same pot, medium heat. Onion in — soften 3–4 minutes. Garlic in — 1 minute. Now the spices: <strong>1 tsp smoked paprika, ½ tsp coriander, ½ tsp turmeric, pinch of crushed red pepper flakes, salt and pepper</strong>. Stir 30 seconds — they bloom in the fat and wake up completely. It will smell wonderful immediately. This quantity is not bold — it is correct. 😄</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 3 — simmer 15 min</div>
+    <div class="step-title">Lentils and carrots in</div>
+    <div class="step-body">Add carrots, stir to coat in spices. Add rinsed lentils, stir. Pour over 400ml chicken broth + 60ml white wine. Liquid should just cover everything — add a splash more broth if needed. Nestle sausages back in. Bring to a boil, then immediately down to a gentle simmer. Cover, leave it. Timer 15 minutes.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 4 — simmer 12–15 min</div>
+    <div class="step-title">Squash and peppers in</div>
+    <div class="step-body">Check lentils — starting to soften but still a little bite. Add squash and bell peppers, push gently into the liquid. Lid back on. Simmer another 12–15 minutes until lentils are fully tender and squash is soft but not collapsed. Check liquid — if too dry add a small splash of broth. It should be saucy but not soupy.</div>
+    <div class="insight">Why stagger the vegetables? Carrots are robust — they go the distance with lentils. Squash and peppers are delicate — they collapse if cooked too long. Adding them last means everything finishes at the right texture at the same time. This is the key move.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Finish</div>
+    <div class="step-title">Serve</div>
+    <div class="step-body">Off heat. Drizzle of good olive oil. Optional squeeze of lemon to brighten. Serve straight from the Dutch oven into deep bowls. Bread alongside for the broth at the bottom.</div>
+    <div class="divider"></div>
+    <div class="note">Sunny cold April day. Cava Brut alongside. Best sausage-lentil dish ever made in this kitchen — the spice quantities made all the difference. 🥂</div>
+    <div class="note-small">This is exactly what the Dutch oven was made for. One pot, zero regrets.</div>
+  </div>
+
+</div>
+</body>
+</html>

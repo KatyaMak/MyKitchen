@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sage Butter Chicken — My Kitchen</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #f8f3ec; --warm-white: #fdfaf6; --linen: #ede5d8; --sand: #d9cbb8;
+    --walnut: #7a5c38; --bark: #4a3018; --ink: #1a1208;
+    --border: rgba(154, 125, 90, 0.2); --border-med: rgba(154, 125, 90, 0.35);
+  }
+  body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--ink); min-height: 100vh; }
+  .page { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+  .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.5rem; flex-wrap: wrap; }
+  .breadcrumb a { color: var(--walnut); text-decoration: none; transition: color 0.15s; }
+  .breadcrumb a:hover { color: var(--bark); }
+  .breadcrumb span { color: var(--sand); }
+  .back-arrow { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--walnut); text-decoration: none; margin-bottom: 1.5rem; transition: color 0.15s; }
+  .back-arrow:hover { color: var(--bark); }
+  .header { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 0.5px solid var(--border-med); }
+  .header h1 { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 400; color: var(--ink); line-height: 1.2; margin-bottom: 6px; }
+  .header h1 em { font-style: italic; color: var(--walnut); }
+  .meta { font-size: 11px; color: var(--walnut); letter-spacing: 0.05em; font-weight: 300; margin-bottom: 1rem; }
+  .stars { color: var(--walnut); font-size: 11px; letter-spacing: 1px; }
+  .tag-grid { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.5rem; }
+  .tag { padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 400; background: var(--linen); color: var(--bark); border: 0.5px solid var(--sand); }
+  .tag.next { background: #fff8ec; color: #7a5c20; border-color: #f0d898; }
+  .card { background: var(--warm-white); border: 0.5px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; }
+  .step-label { font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--walnut); margin-bottom: 0.6rem; }
+  .step-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 500; color: var(--ink); margin-bottom: 0.75rem; }
+  .step-body { font-size: 13px; color: var(--ink); line-height: 1.8; font-weight: 300; }
+  .step-body strong { font-weight: 500; color: var(--bark); }
+  .insight { background: var(--linen); border-radius: 8px; padding: 0.9rem 1rem; margin-top: 1rem; font-size: 12px; font-weight: 300; color: var(--bark); line-height: 1.7; border-left: 2px solid var(--sand); }
+  .divider { height: 0.5px; background: var(--border); margin: 1.25rem 0; }
+  .note { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-style: italic; color: var(--walnut); line-height: 1.6; margin-top: 1rem; }
+  .note-small { font-size: 11px; color: var(--walnut); font-weight: 300; margin-top: 0.5rem; }
+  @media (max-width: 480px) { .page { padding: 1.5rem 1rem 3rem; } .header h1 { font-size: 24px; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="breadcrumb">
+    <a href="../../../index.html">My Kitchen</a><span>·</span>
+    <a href="../../index.html">Recipes</a><span>·</span>
+    <a href="../index.html">Chicken</a><span>·</span>
+    <a href="#">Sage butter chicken</a>
+  </div>
+
+  <a class="back-arrow" href="../index.html">← Chicken</a>
+
+  <div class="header">
+    <h1>Sage butter chicken with <em>parmesan mash</em></h1>
+    <div class="meta">April 2026 &nbsp;·&nbsp; stovetop &nbsp;·&nbsp; serves 2 + leftovers &nbsp;·&nbsp; ~45 min &nbsp;·&nbsp; <span class="stars">★★★★★</span></div>
+  </div>
+
+  <div class="tag-grid">
+    <span class="tag">chicken tenderloins ~250g</span>
+    <span class="tag">Yukon Gold potatoes — 6–7 medium</span>
+    <span class="tag">baby bella mushrooms — whole, slice before cooking</span>
+    <span class="tag">zucchini × 1 small</span>
+    <span class="tag">yellow squash × 1 small</span>
+    <span class="tag">butter — generous, used several times</span>
+    <span class="tag">Fage yogurt — 2–3 tbsp for mash</span>
+    <span class="tag">milk — small splash, warm</span>
+    <span class="tag">Parmesan — for mash and finishing</span>
+    <span class="tag">fresh sage — 6–8 leaves</span>
+    <span class="tag">fresh thyme — few sprigs</span>
+    <span class="tag next">fresh oregano — finishing, raw ✦ (don't forget)</span>
+    <span class="tag">garlic — 2 cloves, lightly smashed</span>
+    <span class="tag">olive oil, salt, pepper</span>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Start here — 20–25 min</div>
+    <div class="step-title">Potatoes on first</div>
+    <div class="step-body">Peel and cube potatoes into roughly equal pieces. Cold salted water, bring to boil, simmer until completely tender — a knife goes in with zero resistance, 20–25 minutes. Don't rush this. Everything else fits inside this window.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 1 — 8 min · while potatoes cook</div>
+    <div class="step-title">Mushrooms — properly</div>
+    <div class="step-body">Slice baby bellas about 5mm thick — not too thin. Wide pan, medium-high heat, small splash of oil. In — <strong>single layer, do not crowd, do not touch for 2 minutes.</strong> Let them brown properly on one side first. Toss, another 2 minutes. <strong>Salt only after they have color</strong> — salt early draws moisture and they steam instead of brown. Strip fresh thyme directly over them while they cook. Toss once more. Out onto a plate, cover loosely.
+      <div class="insight">The rules: high heat, space, patience. No touching. No crowding. No early salt. Break any of these and they steam into sad grey things.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 2 — 5 min</div>
+    <div class="step-title">Zucchini and squash</div>
+    <div class="step-body">Same pan, same heat. Slice into half-moons about 1cm thick. Little oil. Same logic — don't crowd, let them color. 2 minutes each side. Salt, pepper. Out onto the same plate as the mushrooms. Cover loosely — plate or lid slightly ajar, not sealed tight or they go soggy.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 3 — 8 min</div>
+    <div class="step-title">Chicken tenderloins</div>
+    <div class="step-body">Same pan, medium-high heat, small splash of oil. Pat tenderloins completely dry, salt and pepper. In — don't touch 3–4 minutes until genuinely golden. Flip, 2 minutes.<br><br>Now — <strong>reduce to medium-low.</strong> Generous knob of butter in. Sage leaves in whole — they'll crisp in the butter, smell incredible. Garlic cloves lightly smashed in. Tilt the pan slightly and <strong>spoon that sage butter over the tenderloins continuously</strong> — 1–2 minutes. This is basting. Everything goes golden and fragrant.<br><br>Out onto a plate, rest 3 minutes. The sage leaves are edible — actually the best part. Eat them. 😄</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 4 — while chicken rests</div>
+    <div class="step-title">Parmesan mash</div>
+    <div class="step-body">Drain potatoes completely. Back into the warm pot, low heat, 1 minute to dry them out — <strong>this matters</strong>, watery potatoes make sad mash. Off heat. Butter in first — generous knob, let it melt. Mash. Warm milk in gradually — just enough for your texture, don't go too loose. Fage in — 2–3 tbsp, stir. Parmesan grated in — generous. Salt, pepper, taste. It should be rich, creamy, slightly tangy from the Fage.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Plate</div>
+    <div class="step-title">Bring it together</div>
+    <div class="step-body">Mash as the base — generous spoonful. Chicken tenderloins on top, pour any sage butter left in the pan over everything. Mushrooms and zucchini alongside. Fresh oregano torn raw over the top — don't forget it this time. 😄 Parmesan grated over everything at the end.</div>
+    <div class="divider"></div>
+    <div class="note">The whole house smelled like sage butter and roasting things. A kitchen being used properly gets into the walls a little. It becomes the smell of home. 🌿</div>
+    <div class="note-small">The sage leaves crisped in butter are edible — actually the best part. Slightly bitter, nutty, incredible. Forgot the oregano at the end — didn't matter, the sage butter did all the work.</div>
+  </div>
+
+</div>
+</body>
+</html>

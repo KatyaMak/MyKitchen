@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Kitchen</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #f8f3ec;
+    --warm-white: #fdfaf6;
+    --linen: #ede5d8;
+    --sand: #d9cbb8;
+    --walnut: #7a5c38;
+    --bark: #4a3018;
+    --ink: #1a1208;
+    --border: rgba(154, 125, 90, 0.2);
+    --border-med: rgba(154, 125, 90, 0.35);
+  }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background-color: var(--cream);
+    color: var(--ink);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.75rem;
+    border-bottom: 0.5px solid var(--border-med);
+  }
+
+  .header-left h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 400;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .header-left h1 em { font-style: italic; color: var(--walnut); }
+
+  .header-sub {
+    font-size: 12px; font-weight: 300;
+    letter-spacing: 0.14em; color: var(--walnut);
+    text-transform: uppercase;
+  }
+
+  .intro {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px; font-style: italic;
+    color: var(--walnut); margin-bottom: 2.5rem;
+    font-weight: 400; line-height: 1.7;
+  }
+
+  .nav-card {
+    display: block;
+    background: var(--warm-white);
+    border: 0.5px solid var(--border);
+    border-radius: 14px;
+    padding: 1.4rem 1.5rem 1.2rem;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.18s, border-color 0.18s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .nav-card:hover { background: var(--linen); border-color: var(--border-med); }
+  .nav-card:hover .nav-arrow { transform: translateX(3px); }
+
+  .nav-card::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 2px;
+    background: var(--sand); opacity: 0;
+    transition: opacity 0.18s;
+  }
+  .nav-card:hover::before { opacity: 1; }
+
+  .nav-card-label {
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--walnut); margin-bottom: 0.4rem;
+  }
+
+  .nav-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px; font-weight: 500;
+    color: var(--ink); margin-bottom: 0.4rem; line-height: 1.1;
+  }
+
+  .nav-card-desc {
+    font-size: 12px; font-weight: 300;
+    color: var(--walnut); line-height: 1.6;
+  }
+
+  .nav-arrow {
+    font-size: 14px; color: var(--walnut);
+    transition: transform 0.18s; display: inline-block;
+    margin-top: 0.9rem;
+  }
+
+  /* Row 1 — Recipes: full width horizontal */
+  .nav-card.recipes-wide {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding: 1.4rem 1.5rem 2.2rem;
+  }
+  .nav-card.recipes-wide .nav-arrow { margin-top: 0; padding-left: 1rem; font-size: 18px; }
+  .recipes-wide-left { flex: 1; }
+
+  /* Row 2 — Pantry + Grocery: match row3 height */
+  .row2 .nav-card { padding: 1.4rem 1.5rem 1.2rem; }
+  .row2 .nav-arrow { margin-top: 0.9rem; }
+
+  /* Row 2 — Pantry + Grocery */
+  .row2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .nav-card.grocery {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .nav-card.grocery .nav-arrow { margin-top: 0.9rem; }
+
+  /* Row 3 — About + Misc */
+  .row3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .footer-notes {
+    margin-top: auto;
+    padding-top: 1.75rem;
+    border-top: 0.5px solid var(--border);
+  }
+
+  .note-row {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px; font-style: italic;
+    font-weight: 400; color: var(--walnut);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 520px) {
+    .page { padding: 2rem 1rem 3.5rem; }
+    .header-left h1 { font-size: 34px; }
+    .row2, .row3 { grid-template-columns: 1fr; }
+    .nav-card.grocery { aspect-ratio: unset; }
+    .nav-card.recipes-wide { flex-direction: column; align-items: flex-start; }
+    .nav-card.recipes-wide .nav-arrow { padding-left: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="header-left">
+      <h1>My <em>kitchen</em></h1>
+      <div class="header-sub">Fridley, MN — French · Italian · Polish</div>
+    </div>
+  </div>
+
+  <p class="intro">Cooking is data. A recipe is an algorithm for joy.<br>Reducing the noise, increasing the flavor.</p>
+
+  <!-- Row 1: Recipes — full width -->
+  <a class="nav-card recipes-wide" href="recipes/index.html">
+    <div class="recipes-wide-left">
+      <div class="nav-card-label">What we cook</div>
+      <div class="nav-card-title">Recipes</div>
+      <div class="nav-card-desc">Tested, refined, and documented.</div>
+    </div>
+    <span class="nav-arrow">→</span>
+  </a>
+
+  <!-- Row 2: Pantry + Grocery -->
+  <div class="row2">
+
+    <a class="nav-card grocery" href="grocery/index.html">
+      <div>
+        <div class="nav-card-label">Next run</div>
+        <div class="nav-card-title">Grocery</div>
+        <div class="nav-card-desc">Check off. Add what's missing.</div>
+      </div>
+      <span class="nav-arrow">→</span>
+    </a>
+
+    <a class="nav-card" href="pantry/index.html">
+      <div class="nav-card-label">Always stocked</div>
+      <div class="nav-card-title">Pantry</div>
+      <div class="nav-card-desc">Spices, grains, jars, fridge, freezer, bar.</div>
+      <span class="nav-arrow">→</span>
+    </a>
+
+  </div>
+
+  <!-- Row 3: About + Misc -->
+  <div class="row3">
+
+    <a class="nav-card" href="misc/index.html">
+      <div class="nav-card-label">Ideas & notes</div>
+      <div class="nav-card-title" style="font-size:20px;">Misc</div>
+      <div class="nav-card-desc">Recipes to try, discoveries, things waiting.</div>
+      <span class="nav-arrow">→</span>
+    </a>
+
+    <a class="nav-card" href="about/index.html">
+      <div class="nav-card-label">The kitchen</div>
+      <div class="nav-card-title" style="font-size:20px;">About</div>
+      <div class="nav-card-desc">Who cooks here, how, with what.</div>
+      <span class="nav-arrow">→</span>
+    </a>
+
+  </div>
+
+  <div class="footer-notes">
+    <div class="note-row">Results may vary depending on the quality of your spices and the quantity of your wine.</div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Caprese Pasta — My Kitchen</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #f8f3ec; --warm-white: #fdfaf6; --linen: #ede5d8; --sand: #d9cbb8;
+    --walnut: #7a5c38; --bark: #4a3018; --ink: #1a1208;
+    --border: rgba(154, 125, 90, 0.2); --border-med: rgba(154, 125, 90, 0.35);
+  }
+  body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--ink); min-height: 100vh; }
+  .page { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+  .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.5rem; flex-wrap: wrap; }
+  .breadcrumb a { color: var(--walnut); text-decoration: none; transition: color 0.15s; }
+  .breadcrumb a:hover { color: var(--bark); }
+  .breadcrumb span { color: var(--sand); }
+  .back-arrow { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--walnut); text-decoration: none; margin-bottom: 1.5rem; transition: color 0.15s; }
+  .back-arrow:hover { color: var(--bark); }
+  .header { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 0.5px solid var(--border-med); }
+  .header h1 { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 400; color: var(--ink); line-height: 1.2; margin-bottom: 6px; }
+  .header h1 em { font-style: italic; color: var(--walnut); }
+  .meta { font-size: 11px; color: var(--walnut); letter-spacing: 0.05em; font-weight: 300; margin-bottom: 1rem; }
+  .stars { color: var(--walnut); font-size: 11px; letter-spacing: 1px; }
+  .tag-grid { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.5rem; }
+  .tag { padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 400; background: var(--linen); color: var(--bark); border: 0.5px solid var(--sand); }
+  .card { background: var(--warm-white); border: 0.5px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; }
+  .step-label { font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--walnut); margin-bottom: 0.6rem; }
+  .step-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 500; color: var(--ink); margin-bottom: 0.75rem; }
+  .step-body { font-size: 13px; color: var(--ink); line-height: 1.8; font-weight: 300; }
+  .step-body strong { font-weight: 500; color: var(--bark); }
+  .step-body em { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; }
+  .divider { height: 0.5px; background: var(--border); margin: 1.25rem 0; }
+  .note { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-style: italic; color: var(--walnut); line-height: 1.6; margin-top: 1rem; }
+  @media (max-width: 480px) { .page { padding: 1.5rem 1rem 3rem; } .header h1 { font-size: 24px; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="breadcrumb">
+    <a href="../../../index.html">My Kitchen</a><span>·</span>
+    <a href="../../index.html">Recipes</a><span>·</span>
+    <a href="../index.html">Pasta</a><span>·</span>
+    <a href="#">Caprese pasta</a>
+  </div>
+
+  <a class="back-arrow" href="../index.html">← Pasta</a>
+
+  <div class="header">
+    <h1>Caprese <em>pasta</em></h1>
+    <div class="meta">April 2026 &nbsp;·&nbsp; stovetop &nbsp;·&nbsp; 20 minutes &nbsp;·&nbsp; serves 1–2 &nbsp;·&nbsp; <span class="stars">★★★★★</span></div>
+  </div>
+
+  <div class="tag-grid">
+    <span class="tag">fusilli 160–180g</span>
+    <span class="tag">cherry tomatoes ~200g, halved</span>
+    <span class="tag">fresh mozzarella — torn by hand</span>
+    <span class="tag">fresh basil — generous</span>
+    <span class="tag">fresh oregano</span>
+    <span class="tag">fresh thyme — a few leaves</span>
+    <span class="tag">garlic — 2 cloves, sliced thin</span>
+    <span class="tag">Calabrian peppers — small spoonful</span>
+    <span class="tag">olive oil — generous, twice</span>
+    <span class="tag">lemon — small squeeze</span>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Start here</div>
+    <div class="step-title">Pasta water first</div>
+    <div class="step-body">Big pot, well salted. Bring to a full boil. Cook fusilli until just al dente — 1–2 minutes less than the package says. It finishes with the tomatoes. Before draining, reserve a cup of pasta water.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 1 — while pasta cooks</div>
+    <div class="step-title">The garlic base</div>
+    <div class="step-body">Wide pan, medium heat, generous olive oil. Slice garlic thin — sliced, not crushed, so it melts into the oil. Gently golden, 2–3 minutes. Not brown. Add a small spoonful of Calabrian peppers — little heat, little depth.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 2 — 3–4 min</div>
+    <div class="step-title">Tomatoes — just warm them</div>
+    <div class="step-body">Cherry tomatoes halved, into the pan. Medium heat — you're not blistering them here, just warming them through so they release their juices and soften slightly. 3–4 minutes. Salt lightly. This is a fresh dish, not a cooked sauce — keep the heat gentle.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 3</div>
+    <div class="step-title">Fresh herbs in</div>
+    <div class="step-body">Fresh oregano leaves stripped directly in — generous. A few fresh thyme leaves. Stir once. Off heat.<br><br><em>Sage — not here. Sage is warm and earthy and fights the bright Caprese direction. Save it for butter pasta.</em></div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Finish</div>
+    <div class="step-title">Bring it together</div>
+    <div class="step-body">Drained pasta into the pan. Toss well. Add pasta water in small splashes until everything looks glossy and loose — fusilli drinks it fast, be generous. Small squeeze of lemon. Raw drizzle of good olive oil. Toss once more.<br><br><strong>Mozzarella — off heat, last.</strong> Tear by hand directly over the pasta — chunky irregular pieces. Let it sit 30 seconds so it just softens slightly rather than melts completely. That's the move.<br><br>Fresh basil torn over the top. Plate immediately.</div>
+    <div class="divider"></div>
+    <div class="note">Solo Saturday dinner. Cherry tomatoes, fresh mozzarella, Cava alongside. Light, fresh, barely cooked — summer on a plate in April. 🍝🥂</div>
+  </div>
+
+</div>
+</body>
+</html>

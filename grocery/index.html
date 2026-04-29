@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grocery — My Kitchen</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #f8f3ec;
+    --warm-white: #fdfaf6;
+    --linen: #ede5d8;
+    --sand: #d9cbb8;
+    --walnut: #7a5c38;
+    --bark: #4a3018;
+    --ink: #1a1208;
+    --border: rgba(154, 125, 90, 0.2);
+    --border-med: rgba(154, 125, 90, 0.35);
+  }
+
+  body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--ink); min-height: 100vh; }
+
+  .page { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+
+  .back-btn {
+    font-size: 12px; font-weight: 400; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--walnut); text-decoration: none;
+    display: inline-flex; align-items: center; gap: 4px;
+    transition: color 0.15s; margin-bottom: 2rem;
+  }
+  .back-btn:hover { color: var(--bark); }
+
+  .header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 0.5px solid var(--border-med);
+  }
+  .header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px; font-weight: 400; color: var(--ink);
+    letter-spacing: 0.01em; line-height: 1; margin-bottom: 4px;
+  }
+  .header h1 em { font-style: italic; color: var(--walnut); }
+  .header-sub {
+    font-size: 12px; font-weight: 300; letter-spacing: 0.12em;
+    color: var(--walnut); text-transform: uppercase;
+  }
+
+  .section-intro {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px; font-style: italic; color: var(--walnut);
+    margin-bottom: 1.75rem;
+  }
+
+  .card {
+    background: var(--warm-white);
+    border: 0.5px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-label {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--walnut); margin-bottom: 0.75rem;
+  }
+
+  /* ── Grocery items ── */
+  .grocery-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 9px 0;
+    border-bottom: 0.5px solid var(--border);
+    font-size: 14px; font-weight: 300; color: var(--ink);
+    transition: opacity 0.2s;
+  }
+  .grocery-item:last-of-type { border-bottom: none; }
+
+  .grocery-item.done {
+    opacity: 0.32;
+    text-decoration: line-through;
+  }
+
+  .check {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    border: 0.5px solid var(--sand);
+    flex-shrink: 0; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    background: transparent;
+    transition: all 0.15s;
+  }
+  .check.ticked {
+    background: var(--walnut);
+    border-color: var(--walnut);
+  }
+  .check.ticked::after {
+    content: '';
+    width: 7px; height: 4px;
+    border-left: 1.5px solid #fff;
+    border-bottom: 1.5px solid #fff;
+    transform: rotate(-45deg) translateY(-1px);
+    display: block;
+  }
+
+  .item-text { flex: 1; }
+
+  .remove-item {
+    font-size: 14px; color: var(--sand);
+    cursor: pointer; padding: 0 4px;
+    transition: color 0.15s;
+    line-height: 1; background: none; border: none;
+    font-family: 'Jost', sans-serif;
+    opacity: 0;
+  }
+  .grocery-item:hover .remove-item { opacity: 1; }
+  .remove-item:hover { color: var(--walnut); }
+
+  /* ── Add row ── */
+  .add-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 1rem;
+    align-items: center;
+  }
+
+  .add-input {
+    flex: 1;
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    border: 0.5px solid var(--border-med);
+    background: var(--cream);
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .add-input:focus { border-color: var(--walnut); }
+  .add-input::placeholder { color: var(--sand); }
+
+  .add-btn {
+    padding: 7px 18px;
+    border-radius: 20px;
+    font-size: 11px; font-weight: 400;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    font-family: 'Jost', sans-serif;
+    background: var(--walnut); color: #fff;
+    border: none; cursor: pointer;
+    transition: background 0.15s;
+  }
+  .add-btn:hover { background: var(--bark); }
+
+  /* ── Clear done button ── */
+  .clear-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 0.5px solid var(--border-med);
+    font-size: 11px; letter-spacing: 0.08em;
+    text-transform: uppercase; cursor: pointer;
+    background: transparent; color: var(--walnut);
+    margin-top: 1.25rem;
+    font-family: 'Jost', sans-serif;
+    transition: background 0.15s;
+  }
+  .clear-btn:hover { background: var(--linen); }
+
+  @media (max-width: 480px) {
+    .page { padding: 1.5rem 1rem 3rem; }
+    .header h1 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <a class="back-btn" href="../index.html">← My Kitchen</a>
+
+  <div class="header">
+    <h1><em>Grocery</em></h1>
+    <div class="header-sub">Next run.</div>
+  </div>
+
+  <p class="section-intro">Check off as you go. Add what's missing.</p>
+
+  <div class="card">
+    <div class="card-label">To buy</div>
+    <div id="grocery-list"></div>
+    <div class="add-row">
+      <input class="add-input" id="new-item-input" type="text" placeholder="add item…" />
+      <button class="add-btn" onclick="addItem()">Add</button>
+    </div>
+    <button class="clear-btn" onclick="clearDone()">Clear checked</button>
+  </div>
+
+</div>
+
+<script>
+const STORAGE_KEY = 'grocery_list_v1';
+
+const DEFAULTS = [
+  { text: 'thyme', done: false },
+  { text: 'quinoa', done: false },
+  { text: 'allspice — whole', done: false }
+];
+
+function loadItems() {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    return saved ? JSON.parse(saved) : DEFAULTS;
+  } catch { return DEFAULTS; }
+}
+
+function saveItems(items) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+}
+
+function renderList() {
+  const items = loadItems();
+  const list = document.getElementById('grocery-list');
+  list.innerHTML = '';
+
+  items.forEach((item, i) => {
+    const row = document.createElement('div');
+    row.className = 'grocery-item' + (item.done ? ' done' : '');
+
+    const check = document.createElement('div');
+    check.className = 'check' + (item.done ? ' ticked' : '');
+    check.onclick = () => toggleItem(i);
+
+    const text = document.createElement('span');
+    text.className = 'item-text';
+    text.textContent = item.text;
+
+    const remove = document.createElement('button');
+    remove.className = 'remove-item';
+    remove.textContent = '×';
+    remove.onclick = () => removeItem(i);
+
+    row.appendChild(check);
+    row.appendChild(text);
+    row.appendChild(remove);
+    list.appendChild(row);
+  });
+}
+
+function toggleItem(i) {
+  const items = loadItems();
+  items[i].done = !items[i].done;
+  saveItems(items);
+  renderList();
+}
+
+function removeItem(i) {
+  const items = loadItems();
+  items.splice(i, 1);
+  saveItems(items);
+  renderList();
+}
+
+function addItem() {
+  const input = document.getElementById('new-item-input');
+  const val = input.value.trim();
+  if (!val) return;
+  const items = loadItems();
+  items.push({ text: val, done: false });
+  saveItems(items);
+  input.value = '';
+  renderList();
+}
+
+function clearDone() {
+  const items = loadItems().filter(i => !i.done);
+  saveItems(items);
+  renderList();
+}
+
+// Allow Enter key to add
+document.addEventListener('DOMContentLoaded', () => {
+  renderList();
+  document.getElementById('new-item-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') addItem();
+  });
+});
+</script>
+</body>
+</html>
