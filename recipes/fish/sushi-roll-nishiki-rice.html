@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sushi Roll — My Kitchen</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #f8f3ec; --warm-white: #fdfaf6; --linen: #ede5d8; --sand: #d9cbb8;
+    --walnut: #7a5c38; --bark: #4a3018; --ink: #1a1208;
+    --border: rgba(154, 125, 90, 0.2); --border-med: rgba(154, 125, 90, 0.35);
+  }
+  body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--ink); min-height: 100vh; }
+  .page { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+  .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2rem; flex-wrap: wrap; }
+  .breadcrumb a { color: var(--walnut); text-decoration: none; transition: color 0.15s; }
+  .breadcrumb a:hover { color: var(--bark); }
+  .breadcrumb span { color: var(--sand); }
+  .header { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 0.5px solid var(--border-med); }
+  .header h1 { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 400; color: var(--ink); line-height: 1.2; margin-bottom: 6px; }
+  .header h1 em { font-style: italic; color: var(--walnut); }
+  .meta { font-size: 11px; color: var(--walnut); letter-spacing: 0.05em; font-weight: 300; margin-bottom: 1rem; }
+  .stars { color: var(--walnut); font-size: 11px; letter-spacing: 1px; }
+  .tag-grid { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.5rem; }
+  .tag { padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 400; background: var(--linen); color: var(--bark); border: 0.5px solid var(--sand); }
+  .tag.next { background: #fff8ec; color: #7a5c20; border-color: #f0d898; }
+  .card { background: var(--warm-white); border: 0.5px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; }
+  .step-label { font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--walnut); margin-bottom: 0.6rem; }
+  .step-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 500; color: var(--ink); margin-bottom: 0.75rem; }
+  .step-body { font-size: 13px; color: var(--ink); line-height: 1.8; font-weight: 300; }
+  .step-body strong { font-weight: 500; color: var(--bark); }
+  .step-body em { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; }
+  .divider { height: 0.5px; background: var(--border); margin: 1.25rem 0; }
+  .note { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-style: italic; color: var(--walnut); line-height: 1.6; margin-top: 1rem; }
+  .back-arrow {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12px; font-weight: 400; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--walnut);
+    text-decoration: none; margin-bottom: 1.5rem;
+    transition: color 0.15s;
+  }
+  .back-arrow:hover { color: var(--bark); }
+  @media (max-width: 480px) { .page { padding: 1.5rem 1rem 3rem; } .header h1 { font-size: 24px; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="breadcrumb">
+    <a href="../../../index.html">My Kitchen</a><span>·</span>
+    <a href="../../index.html">Recipes</a><span>·</span>
+    <a href="../index.html">Fish</a><span>·</span>
+    <a href="#">Sushi Roll</a>
+  </div>
+
+  <a class="back-arrow" href="../index.html">← Fish</a>
+
+  <div class="header">
+    <h1>Sushi Roll — <em>Nishiki Rice</em> Edition</h1>
+    <div class="meta">stovetop &nbsp;·&nbsp; 45 minutes &nbsp;·&nbsp; makes 3 rolls, serves 2 &nbsp;·&nbsp; <span class="stars">★★★★★</span></div>
+  </div>
+
+  <div class="tag-grid">
+    <span class="tag">Nishiki rice — ½ cup</span>
+    <span class="tag">water — 1 cup</span>
+    <span class="tag">rice vinegar — 1 tbsp</span>
+    <span class="tag">sugar — ½ tsp</span>
+    <span class="tag">salt — ¼ tsp</span>
+    <span class="tag">nori sheets</span>
+    <span class="tag">crab stick</span>
+    <span class="tag">avocado</span>
+    <span class="tag">cucumber</span>
+    <span class="tag next">Brie, thin slices, rind off — if using ✦</span>
+    <span class="tag">gourmaise — tiny drizzle</span>
+    <span class="tag">sesame seeds</span>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Start here</div>
+    <div class="step-title">Rice first — everything depends on it</div>
+    <div class="step-body">Measure ½ cup Nishiki. Rinse 3–4 times until the water runs almost clear. Sushi rice wants a tighter ratio than risotto — 1 cup water to the ½ cup rice. Bring to a boil, cover, drop to the lowest heat, and cook 12 minutes. Off heat, lid still on, 10 minutes more. <strong>Don't peek</strong> — every lift of the lid lets out steam the rice still needs.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 1 — while the rice rests</div>
+    <div class="step-title">Mix the seasoning</div>
+    <div class="step-body">Stir together 1 tbsp rice vinegar, ½ tsp sugar, ¼ tsp salt. Stir until the sugar and salt fully dissolve, and have it ready before the rice finishes — it goes in warm.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 2</div>
+    <div class="step-title">Season and cool the rice</div>
+    <div class="step-body">When the rice is done, fold the vinegar mix in gently while it's still warm — fan it a little as you fold. Let it cool to just above room temperature before rolling. Warm rice tears the nori and won't hold a roll.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Step 3</div>
+    <div class="step-title">Set up the roll</div>
+    <div class="step-body">Nori shiny side down, shorter side toward you. Wet your fingers and spread the rice in a thin, even layer, leaving a 2cm gap at the far edge — that bare strip is what seals the roll. Lay the fillings in a strip about ⅓ of the way up from the bottom edge: crab stick, avocado, cucumber, <em>thin slices of Brie with the rind off if using</em>, and a tiny drizzle of gourmaise.</div>
+  </div>
+
+  <div class="card">
+    <div class="step-label">Finish</div>
+    <div class="step-title">Roll, seed, slice</div>
+    <div class="step-body">Roll firmly away from you, tucking tight as you go, and press to hold at the seal strip. Sprinkle sesame seeds on the outside after rolling and press gently so they stick. Wet the knife between cuts and use single clean strokes — 6–8 pieces per roll.</div>
+    <div class="divider"></div>
+    <div class="note">Makes 3 rolls — plenty for two, with one left over. 🍣</div>
+  </div>
+
+</div>
+
+
+</body>
+</html>
